@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 lucide.createIcons();
             } catch (e) {
-                console.warn('Error rendering Lucide icons:', e);
+                // Fail silently if icons cannot render (e.g., offline)
             }
         }
     }
@@ -101,6 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
+    function appendDynamicField(listElement, id, innerHtml) {
+        if (!listElement) return;
+        listElement.insertAdjacentHTML('beforeend', createDynamicItemContainer(id, innerHtml));
+        setupItemListeners(id);
+        safeCreateIcons();
+        updatePreview();
+    }
+
     // Add Work Experience Form Group
     function addExperienceField(data = {}) {
         const id = `exp-${expIdCounter++}`;
@@ -122,10 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <textarea class="exp-desc bullet-textarea" rows="3" placeholder="Ej. Desarrollo de APIs en Java, diseño de vistas responsivas...">${data.desc || ''}</textarea>
                 </div>
         `;
-        experienceList.insertAdjacentHTML('beforeend', createDynamicItemContainer(id, innerHtml));
-        setupItemListeners(id);
-        safeCreateIcons();
-        updatePreview();
+        appendDynamicField(experienceList, id, innerHtml);
     }
 
     // Add Project Form Group
@@ -145,10 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <textarea class="proj-desc" rows="2" placeholder="Ej. Aplicación móvil de gestión logística con base de datos local y offline...">${data.desc || ''}</textarea>
                 </div>
         `;
-        projectsList.insertAdjacentHTML('beforeend', createDynamicItemContainer(id, innerHtml));
-        setupItemListeners(id);
-        safeCreateIcons();
-        updatePreview();
+        appendDynamicField(projectsList, id, innerHtml);
     }
 
     // Add Education Form Group
@@ -168,10 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <input type="text" class="edu-dates" value="${data.dates || ''}" placeholder="Ej. 2024 - 2026">
                 </div>
         `;
-        educationList.insertAdjacentHTML('beforeend', createDynamicItemContainer(id, innerHtml));
-        setupItemListeners(id);
-        safeCreateIcons();
-        updatePreview();
+        appendDynamicField(educationList, id, innerHtml);
     }
 
     // Add Skill Form Group
@@ -184,10 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <input type="hidden" class="skill-level" value="${level}">
         `;
-        if(skillsList) skillsList.insertAdjacentHTML('beforeend', createDynamicItemContainer(id, innerHtml));
-        setupItemListeners(id);
-        safeCreateIcons();
-        updatePreview();
+        appendDynamicField(skillsList, id, innerHtml);
     }
 
     // Add Language Form Group
@@ -211,10 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
         `;
-        if(languagesList) languagesList.insertAdjacentHTML('beforeend', createDynamicItemContainer(id, innerHtml));
-        setupItemListeners(id);
-        safeCreateIcons();
-        updatePreview();
+        appendDynamicField(languagesList, id, innerHtml);
     }
 
     // Setup input and delete event listeners for a dynamic item
@@ -267,6 +260,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
+                reader.onerror = function (err) {
+                    alert('Error al intentar leer la imagen.');
+                };
                 reader.onload = function(event) {
                     currentPhoto = event.target.result;
                     updatePreview();
@@ -333,6 +329,47 @@ document.addEventListener('DOMContentLoaded', () => {
         setContact('preview-linkedin', 'cv-contact-linkedin-container', inputLinkedin.value, 'url');
     }
 
+    function buildExperienceHtml(role, company, dates, desc) {
+        return `
+            <div class="cv-item-block">
+                <div class="cv-item-header">
+                    <div class="cv-item-title">${role || 'Puesto'}</div>
+                    <div class="cv-item-meta">${company || 'Empresa'}</div>
+                </div>
+                <div class="cv-item-dates">${dates || ''}</div>
+                ${desc ? `<div class="cv-item-desc">${desc.replace(/\n/g, '<br>')}</div>` : ''}
+            </div>
+        `;
+    }
+
+    function buildProjectHtml(title, techString, desc) {
+        const techBadges = techString.split(',')
+            .map(t => t.trim())
+            .filter(t => t !== '')
+            .map(t => `<span class="cv-badge-tech">${t}</span>`)
+            .join('');
+
+        return `
+            <div class="cv-item-block">
+                <div class="cv-item-header">
+                    <div class="cv-item-title">${title}</div>
+                </div>
+                ${desc ? `<div class="cv-item-desc">${desc.replace(/\n/g, '<br>')}</div>` : ''}
+                ${techBadges ? `<div class="cv-item-tech">${techBadges}</div>` : ''}
+            </div>
+        `;
+    }
+
+    function buildEducationHtml(degree, school, dates) {
+        return `
+            <div class="cv-item-block">
+                <div class="cv-item-title">${degree || 'Título'}</div>
+                <div class="cv-item-meta">${school || 'Centro'}</div>
+                <div class="cv-item-dates">${dates || ''}</div>
+            </div>
+        `;
+    }
+
     function updateExperiencePreview() {
         const experienceContainer = document.getElementById('preview-experience');
         const expItems = experienceList.querySelectorAll('.dynamic-item');
@@ -350,17 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const desc = item.querySelector('.exp-desc').value;
 
                 if (role || company) {
-                    const blockHtml = `
-                        <div class="cv-item-block">
-                            <div class="cv-item-header">
-                                <div class="cv-item-title">${role || 'Puesto'}</div>
-                                <div class="cv-item-meta">${company || 'Empresa'}</div>
-                            </div>
-                            <div class="cv-item-dates">${dates || ''}</div>
-                            ${desc ? `<div class="cv-item-desc">${desc.replace(/\n/g, '<br>')}</div>` : ''}
-                        </div>
-                    `;
-                    experienceContainer.insertAdjacentHTML('beforeend', blockHtml);
+                    experienceContainer.insertAdjacentHTML('beforeend', buildExperienceHtml(role, company, dates, desc));
                 }
             });
         }
@@ -382,22 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const desc = item.querySelector('.proj-desc').value;
 
                 if (title) {
-                    const techBadges = techString.split(',')
-                        .map(t => t.trim())
-                        .filter(t => t !== '')
-                        .map(t => `<span class="cv-badge-tech">${t}</span>`)
-                        .join('');
-
-                    const blockHtml = `
-                        <div class="cv-item-block">
-                            <div class="cv-item-header">
-                                <div class="cv-item-title">${title}</div>
-                            </div>
-                            ${desc ? `<div class="cv-item-desc">${desc.replace(/\n/g, '<br>')}</div>` : ''}
-                            ${techBadges ? `<div class="cv-item-tech">${techBadges}</div>` : ''}
-                        </div>
-                    `;
-                    projectsContainer.insertAdjacentHTML('beforeend', blockHtml);
+                    projectsContainer.insertAdjacentHTML('beforeend', buildProjectHtml(title, techString, desc));
                 }
             });
         }
@@ -419,14 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const dates = item.querySelector('.edu-dates').value;
 
                 if (degree || school) {
-                    const blockHtml = `
-                        <div class="cv-item-block">
-                            <div class="cv-item-title">${degree || 'Título'}</div>
-                            <div class="cv-item-meta">${school || 'Centro'}</div>
-                            <div class="cv-item-dates">${dates || ''}</div>
-                        </div>
-                    `;
-                    educationContainer.insertAdjacentHTML('beforeend', blockHtml);
+                    educationContainer.insertAdjacentHTML('beforeend', buildEducationHtml(degree, school, dates));
                 }
             });
         }
@@ -930,7 +935,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('Currículum cargado correctamente.');
                 } catch (err) {
                     alert('Error al leer el archivo JSON.');
-                    console.error(err);
                 }
                 inputJsonFile.value = '';
             };
@@ -1106,7 +1110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 updatePreviewSectionOrder();
             } catch (e) {
-                console.error("Error loading section order", e);
+                // Ignore corrupted local storage section order
             }
         }
 
@@ -1210,7 +1214,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             updatePreview();
         } catch (e) {
-            console.error('Error parsing local storage state, loading default sample data...', e);
+            // Default behavior handles empty fields fine.
             btnSampleData.click();
         }
     }
