@@ -627,6 +627,9 @@ body {
     color: var(--cv-text-dark);
     line-height: 1.1;
     margin-bottom: 0.25rem;
+    white-space: pre-line;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .cv-header-left h2 {

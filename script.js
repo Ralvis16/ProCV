@@ -315,7 +315,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateTextAndContactPreview() {
         // 1. Personal Info
-        setText('preview-fullname', inputFullname.value, 'Nombre Completo');
+        let nameToDisplay = inputFullname.value.trim();
+        const nameWords = nameToDisplay.split(/\s+/);
+        if (nameWords.length > 2) {
+            nameToDisplay = nameWords[0] + ' ' + nameWords[1] + '\n' + nameWords.slice(2).join(' ');
+        }
+        setText('preview-fullname', nameToDisplay, 'Nombre Completo');
         setText('preview-title', inputTitle.value, 'Título Profesional / Especialidad');
         setText('preview-summary', inputSummary.value, 'Breve descripción de ti y tus objetivos en tecnología...');
 
@@ -736,14 +741,14 @@ document.addEventListener('DOMContentLoaded', () => {
         resetSectionOrderToDefault();
 
         // Load Text fields
-        inputFullname.value = 'Alejandro Silva Ramos';
+        inputFullname.value = 'Alex Torto Ramos';
         inputTitle.value = 'Director de Proyectos // Consultor Estratégico';
-        inputEmail.value = 'alejandro.silva@correo.com';
+        inputEmail.value = 'alextorto@correo.com';
         inputPhone.value = '+34 612 345 678';
         inputLocation.value = 'Barcelona, España';
-        inputWebsite.value = 'alexsilva.com';
-        inputLink.value = 'linkedin.com/in/alexsilva';
-        inputLinkedin.value = 'linkedin.com/in/alexsilva';
+        inputWebsite.value = 'alextorto.com';
+        inputLink.value = 'linkedin.com/in/alextorto';
+        inputLinkedin.value = 'linkedin.com/in/alextorto';
         inputSummary.value = 'Profesional proactivo con más de 5 años de experiencia liderando equipos multidisciplinares y optimizando procesos operativos. Apasionado por la mejora continua, la analítica de datos y la gestión ágil de proyectos. Enfocado en maximizar la eficiencia y alcanzar los objetivos organizacionales de manera sostenible.';
         
         inputTitleProfile.value = 'Perfil Profesional';
