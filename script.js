@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="item-controls">
                     <button type="button" class="btn-item-control btn-move-up" title="Subir"><i data-lucide="arrow-up"></i></button>
                     <button type="button" class="btn-item-control btn-move-down" title="Bajar"><i data-lucide="arrow-down"></i></button>
-                    <button type="button" class="btn-remove-item" title="Eliminar"><i data-lucide="x"></i></button>
+                    <button type="button" class="btn-item-control btn-remove-item" title="Eliminar"><i data-lucide="x"></i></button>
                 </div>
                 ${innerHtml}
             </div>
@@ -516,8 +516,23 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSkillsPreview();
         updateSoftSkillsPreview();
         updateLanguagesPreview();
+        updateDynamicControlsState();
         saveToLocalStorage();
     }
+
+    // Disables Move Up for the first item and Move Down for the last item
+    function updateDynamicControlsState() {
+        document.querySelectorAll('.dynamic-list').forEach(list => {
+            const items = list.querySelectorAll('.dynamic-item');
+            items.forEach((item, index) => {
+                const upBtn = item.querySelector('.btn-move-up');
+                const downBtn = item.querySelector('.btn-move-down');
+                if (upBtn) upBtn.disabled = (index === 0);
+                if (downBtn) downBtn.disabled = (index === items.length - 1);
+            });
+        });
+    }
+
     // Helper functions for updating UI
     function setText(id, value, fallback) {
         document.getElementById(id).textContent = value.trim() !== '' ? value : fallback;
@@ -956,11 +971,15 @@ document.addEventListener('DOMContentLoaded', () => {
             margin:       0,
             filename:     `${baseName}_ProCV.pdf`,
             image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2, useCORS: true, logging: false },
+            html2canvas:  { scale: 2, useCORS: true, logging: false, windowWidth: 1200 },
             jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
         
-        html2pdf().set(opt).from(element).save();
+        document.body.classList.add('pdf-export');
+        
+        html2pdf().set(opt).from(element).save().then(() => {
+            document.body.classList.remove('pdf-export');
+        });
     });
 
     // ----------------------------------------------------

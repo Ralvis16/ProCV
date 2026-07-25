@@ -891,6 +891,14 @@ body {
         print-color-adjust: exact !important;
     }
 
+    /* Force desktop padding and width when exporting via html2pdf */
+    body.pdf-export .cv-sheet {
+        padding: 18mm 16mm !important;
+        width: var(--a4-width) !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+
     /* Optimización balanceada para aprovechar al máximo el espacio de 1 hoja A4 */
     .cv-header {
         margin-bottom: 0.75rem !important;
@@ -1398,4 +1406,14 @@ body.template-classic .cv-side-col {
     user-select: auto !important;
     z-index: 10;
     position: relative;
+}
+
+.btn-item-control:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.btn-item-control:disabled:hover {
+    background-color: transparent;
+    color: var(--color-text-muted);
 }
