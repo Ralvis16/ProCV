@@ -320,12 +320,12 @@ document.addEventListener('DOMContentLoaded', () => {
         setText('preview-summary', inputSummary.value, 'Breve descripción de ti y tus objetivos en tecnología...');
 
         // 2. Contacts
-        setContact('preview-email', 'cv-contact-email-container', inputEmail.value);
-        setContact('preview-phone', 'cv-contact-phone-container', inputPhone.value);
-        setContact('preview-location', 'cv-contact-location-container', inputLocation.value);
-        setContact('preview-website', 'cv-contact-website-container', inputWebsite.value);
-        setContact('preview-link', 'cv-contact-link-container', inputLink.value);
-        setContact('preview-linkedin', 'cv-contact-linkedin-container', inputLinkedin.value);
+        setContact('preview-email', 'cv-contact-email-container', inputEmail.value, 'email');
+        setContact('preview-phone', 'cv-contact-phone-container', inputPhone.value, 'phone');
+        setContact('preview-location', 'cv-contact-location-container', inputLocation.value, 'text');
+        setContact('preview-website', 'cv-contact-website-container', inputWebsite.value, 'url');
+        setContact('preview-link', 'cv-contact-link-container', inputLink.value, 'url');
+        setContact('preview-linkedin', 'cv-contact-linkedin-container', inputLinkedin.value, 'url');
     }
 
     function updateExperiencePreview() {
@@ -513,13 +513,27 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById(id).textContent = value.trim() !== '' ? value : fallback;
     }
 
-    function setContact(id, containerId, value) {
+    function setContact(id, containerId, value, type = 'text') {
         const container = document.getElementById(containerId);
         if (value.trim() === '') {
             container.style.display = 'none';
         } else {
             container.style.display = 'flex';
-            document.getElementById(id).textContent = value;
+            const el = document.getElementById(id);
+            el.textContent = value;
+            if (el.tagName === 'A') {
+                if (type === 'email') {
+                    el.href = 'mailto:' + value.trim();
+                } else if (type === 'phone') {
+                    el.href = 'tel:' + value.trim().replace(/\s+/g, '');
+                } else if (type === 'url') {
+                    let url = value.trim();
+                    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                        url = 'https://' + url;
+                    }
+                    el.href = url;
+                }
+            }
         }
     }
 
@@ -1131,10 +1145,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 inputTitleProjects.value = 'Proyectos';
                 inputTitleEducation.value = 'Formación';
                 inputTitleSkills.value = 'Tecnología';
-        inputTitleSoftSkills.value = 'Habilidades';
-        inputSoftSkillsDesc.value = '';
+                inputTitleSoftSkills.value = 'Habilidades';
+                inputSoftSkillsDesc.value = '';
                 inputTitleLanguages.value = 'Idiomas';
             }
+            inputSoftSkillsDesc.value = state.softskillsDesc || '';
             currentPhoto = state.photo || null;
 
             // Clear Dynamic Lists before loadingers
