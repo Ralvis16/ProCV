@@ -675,6 +675,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    border-left: 1px solid var(--cv-divider);
+    padding-left: 1.25rem;
 }
 
 .cv-side-col {
@@ -682,8 +684,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    border-right: 1px solid var(--cv-divider);
-    padding-right: 1.25rem;
 }
 
 /* CV Sections */
@@ -1001,6 +1001,8 @@ body {
     }
 
     .cv-main-col {
+        border-left: none;
+        padding-left: 0;
         border-top: 1px solid var(--cv-divider);
         padding-top: 1.25rem;
     }
@@ -1162,8 +1164,8 @@ body.template-classic .cv-section-title {
 body.template-classic .cv-header-left h1 {
     font-family: serif;
 }
-body.template-classic .cv-side-col {
-    border-right: 1px dashed var(--cv-divider);
+body.template-classic .cv-main-col {
+    border-left: 1px dashed var(--cv-divider);
 }
 
 /* Template Selector */
