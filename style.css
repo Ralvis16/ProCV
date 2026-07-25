@@ -1279,9 +1279,14 @@ body.template-classic .cv-side-col {
         display: none !important;
     }
 
-    body {
-        margin: 0;
-        padding: 0;
+    @page {
+        size: A4 portrait;
+        margin: 0 !important; /* Force 0 physical margin to prevent Safari from adding extra pages */
+    }
+
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
         background-color: #ffffff !important;
     }
 
@@ -1295,15 +1300,19 @@ body.template-classic .cv-side-col {
     }
 
     .cv-sheet {
-        box-shadow: none !important;
-        border: none !important;
-        border-radius: 0 !important;
+        display: block !important; /* CRITICAL: Prevents Safari from breaking flexbox across pages */
         width: 100% !important;
-        max-width: none !important;
-        margin: 0 !important;
-        /* Let @page handle the margins to fix Safari double-margin bugs */
-        padding: 0 !important;
+        max-width: 210mm !important;
+        margin: 0 auto !important;
+        /* Use exactly the same padding as the desktop view to maintain perfect visual fidelity */
+        padding: 18mm 16mm !important;
         min-height: 0 !important; 
+        box-sizing: border-box !important;
+    }
+
+    .cv-body {
+        display: flex !important;
+        align-items: flex-start !important; /* CRITICAL: Prevents Safari flex-stretch bugs during print */
     }
 
     .cv-sheet * {
@@ -1311,13 +1320,8 @@ body.template-classic .cv-side-col {
         print-color-adjust: exact !important;
     }
 
-    @page {
-        size: A4 portrait;
-        /* Define margins natively via @page for cross-browser consistency (Chrome/Safari/Firefox) */
-        margin: 15mm 15mm 15mm 15mm; 
-    }
-
     .cv-section, .dynamic-item, .cv-header {
         page-break-inside: avoid;
+        break-inside: avoid;
     }
 }
