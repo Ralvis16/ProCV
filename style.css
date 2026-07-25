@@ -835,154 +835,6 @@ body {
     color: var(--cv-accent);
 }
 
-/* ----------------------------------------------------
-   @media print - High Quality Native PDF Export
-   ---------------------------------------------------- */
-@media print {
-    @page {
-        size: A4;
-        margin: 12mm 14mm; /* Ajuste balanceado de márgenes de página */
-    }
-
-    /* Hide layout controls, header, and editor completely */
-    .no-print,
-    .app-header,
-    .editor-panel {
-        display: none !important;
-    }
-
-    /* Standard print margin reset */
-    html, body {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        width: 100% !important;
-        height: auto !important;
-        overflow: visible !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .app-container,
-    .workspace,
-    .preview-panel,
-    .preview-scroller {
-        display: block !important;
-        width: 100% !important;
-        height: auto !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        overflow: visible !important;
-        background-color: transparent !important;
-    }
-
-    /* Force the CV Preview Sheet to standard margins and sizes */
-    .cv-sheet {
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        width: 100% !important; /* Ocupa el 100% del ancho disponible dentro del margen de la página */
-        min-height: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        border: none !important;
-        box-sizing: border-box !important;
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-
-    /* Force desktop padding and width when exporting via html2pdf */
-    body.pdf-export .cv-sheet {
-        padding: 18mm 16mm !important;
-        width: var(--a4-width) !important;
-        margin: 0 !important;
-        box-sizing: border-box !important;
-    }
-
-    /* Optimización balanceada para aprovechar al máximo el espacio de 1 hoja A4 */
-    .cv-header {
-        margin-bottom: 0.75rem !important;
-        padding-bottom: 0.5rem !important;
-    }
-    .cv-header-left h1 {
-        font-size: 1.85rem !important;
-        margin-bottom: 0.15rem !important;
-    }
-    .cv-header-left h2 {
-        font-size: 1.05rem !important;
-    }
-    .cv-header-right {
-        gap: 0.25rem 0.8rem !important;
-        font-size: 0.72rem !important;
-    }
-    .cv-body {
-        gap: 1.1rem !important;
-    }
-    .cv-main-col,
-    .cv-side-col {
-        gap: 1.1rem !important;
-    }
-    .cv-side-col {
-        padding-right: 1.1rem !important;
-        gap: 1.1rem !important;
-    }
-    .cv-section {
-        gap: 0.4rem !important;
-    }
-    .cv-section-title {
-        font-size: 0.9rem !important;
-        padding-bottom: 0.18rem !important;
-        margin-bottom: 0.2rem !important;
-    }
-    .cv-list-block {
-        gap: 0.6rem !important;
-    }
-    .cv-item-block {
-        gap: 0.05rem !important;
-    }
-    .cv-item-title {
-        font-size: 0.84rem !important;
-    }
-    .cv-item-meta {
-        font-size: 0.8rem !important;
-    }
-    .cv-item-dates {
-        font-size: 0.74rem !important;
-    }
-    .cv-item-desc {
-        font-size: 0.78rem !important;
-        line-height: 1.35 !important;
-        margin-top: 0.05rem !important;
-    }
-    .cv-text-block {
-        font-size: 0.78rem !important;
-        line-height: 1.35 !important;
-    }
-    .cv-skill-group {
-        gap: 0.25rem !important;
-    }
-    .cv-skill-group h4 {
-        font-size: 0.72rem !important;
-    }
-    .cv-tag {
-        font-size: 0.74rem !important;
-        padding: 0.12rem 0.4rem !important;
-        border-radius: 5px !important;
-    }
-    .cv-language-item {
-        font-size: 0.76rem !important;
-    }
-    .cv-badge-tech {
-        font-size: 0.65rem !important;
-        padding: 0.05rem 0.3rem !important;
-    }
-
-    /* Evita cortes dentro de bloques individuales (los apartados fluyen de manera continua y aprovechan el papel) */
-    .cv-item-block {
-        page-break-inside: avoid;
-        break-inside: avoid;
-    }
-}
 
 /* Responsive Web Layout (Tablet & Mobile Screen sizing) */
 @media (max-width: 1024px) {
@@ -1423,54 +1275,48 @@ body.template-classic .cv-side-col {
    ==================================================== */
 @media print {
     /* Hide UI controls and scrollbars */
-    .no-print {
+    .no-print, .app-header, .editor-panel, .app-footer, .template-selector, .modal-overlay {
         display: none !important;
     }
 
     body {
         margin: 0;
         padding: 0;
-        background: none;
+        background-color: #ffffff !important;
     }
 
-    .app-container {
-        display: block;
-        height: auto;
-    }
-
-    .preview-panel {
-        padding: 0;
-        display: block;
-        height: auto;
-        overflow: visible;
-        background: none;
-    }
-
-    .preview-scroller {
-        height: auto;
-        padding: 0;
-        overflow: visible;
-        display: block;
+    .app-container, .preview-panel, .preview-scroller {
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
     .cv-sheet {
-        margin: 0;
-        box-shadow: none;
-        border: none;
-        width: 100%;
-        max-width: none;
-        /* Ensure it fits exactly on A4 */
-        min-height: 297mm;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        /* Keep internal padding so text doesn't hit the physical paper edge */
+        padding: 12mm 15mm !important;
+        min-height: 0 !important; 
     }
 
-    /* Print settings for the page itself */
+    .cv-sheet * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
     @page {
         size: A4 portrait;
-        margin: 0; /* Remove default browser margins */
+        margin: 0; /* Let cv-sheet padding handle the text spacing */
     }
 
-    /* Prevent breaking inside critical sections if needed */
-    .cv-section {
+    .cv-section, .dynamic-item, .cv-header {
         page-break-inside: avoid;
     }
 }
