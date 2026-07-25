@@ -1417,3 +1417,60 @@ body.template-classic .cv-side-col {
     background-color: transparent;
     color: var(--color-text-muted);
 }
+
+/* ====================================================
+   PRINT STYLES (Native PDF Export)
+   ==================================================== */
+@media print {
+    /* Hide UI controls and scrollbars */
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: none;
+    }
+
+    .app-container {
+        display: block;
+        height: auto;
+    }
+
+    .preview-panel {
+        padding: 0;
+        display: block;
+        height: auto;
+        overflow: visible;
+        background: none;
+    }
+
+    .preview-scroller {
+        height: auto;
+        padding: 0;
+        overflow: visible;
+        display: block;
+    }
+
+    .cv-sheet {
+        margin: 0;
+        box-shadow: none;
+        border: none;
+        width: 100%;
+        max-width: none;
+        /* Ensure it fits exactly on A4 */
+        min-height: 297mm;
+    }
+
+    /* Print settings for the page itself */
+    @page {
+        size: A4 portrait;
+        margin: 0; /* Remove default browser margins */
+    }
+
+    /* Prevent breaking inside critical sections if needed */
+    .cv-section {
+        page-break-inside: avoid;
+    }
+}

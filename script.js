@@ -961,25 +961,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Export PDF (Browser Print Trigger)
     // ----------------------------------------------------
     btnExportPdf.addEventListener('click', () => {
-        const element = document.getElementById('cv-preview-sheet');
-        
         let baseName = inputFullname.value.trim().replace(/\s+/g, '_');
         if (!baseName) baseName = 'Curriculum';
         
-        // Temporarily adjust some styles for better PDF output if needed
-        const opt = {
-            margin:       0,
-            filename:     `${baseName}_ProCV.pdf`,
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2, useCORS: true, logging: false, windowWidth: 1200 },
-            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
+        // Save the original document title
+        const originalTitle = document.title;
+        // Temporarily change title so the exported PDF gets this default name
+        document.title = `${baseName}_ProCV`;
         
-        document.body.classList.add('pdf-export');
+        // Trigger native print dialog
+        window.print();
         
-        html2pdf().set(opt).from(element).save().then(() => {
-            document.body.classList.remove('pdf-export');
-        });
+        // Restore the original document title
+        document.title = originalTitle;
     });
 
     // ----------------------------------------------------
