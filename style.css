@@ -1301,8 +1301,8 @@ body.template-classic .cv-side-col {
         width: 100% !important;
         max-width: none !important;
         margin: 0 !important;
-        /* Keep internal padding so text doesn't hit the physical paper edge */
-        padding: 12mm 15mm !important;
+        /* Let @page handle the margins to fix Safari double-margin bugs */
+        padding: 0 !important;
         min-height: 0 !important; 
     }
 
@@ -1313,7 +1313,8 @@ body.template-classic .cv-side-col {
 
     @page {
         size: A4 portrait;
-        margin: 0; /* Let cv-sheet padding handle the text spacing */
+        /* Define margins natively via @page for cross-browser consistency (Chrome/Safari/Firefox) */
+        margin: 15mm 15mm 15mm 15mm; 
     }
 
     .cv-section, .dynamic-item, .cv-header {
