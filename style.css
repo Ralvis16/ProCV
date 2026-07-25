@@ -86,7 +86,7 @@ body {
     color: var(--color-text-main);
     font-family: var(--font-body);
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.4;
     overflow: hidden;
     height: 100vh;
     width: 100vw;
@@ -716,7 +716,7 @@ body {
 .cv-text-block {
     font-size: 0.85rem;
     color: var(--cv-text-medium);
-    line-height: 1.5;
+    line-height: 1.4;
     text-align: justify;
 }
 
