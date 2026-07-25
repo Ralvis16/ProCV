@@ -1315,9 +1315,26 @@ body.template-classic .cv-main-col {
         box-sizing: border-box !important;
     }
 
-    .cv-body {
-        display: flex !important;
-        align-items: flex-start !important; /* CRITICAL: Prevents Safari flex-stretch bugs during print */
+    body:not(.template-minimal) .cv-body {
+        display: block !important;
+    }
+
+    body:not(.template-minimal) .cv-body::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    body:not(.template-minimal) .cv-side-col {
+        float: left !important;
+        width: 32% !important;
+        display: block !important;
+    }
+
+    body:not(.template-minimal) .cv-main-col {
+        float: right !important;
+        width: 64% !important;
+        display: block !important;
     }
 
     .cv-sheet * {
