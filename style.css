@@ -1274,6 +1274,11 @@ body.template-classic .cv-main-col {
    PRINT STYLES (Native PDF Export)
    ==================================================== */
 @media print {
+    /* Hide extension-injected elements attached to body */
+    body > *:not(.app-container) {
+        display: none !important;
+    }
+
     /* Hide UI controls and scrollbars */
     .no-print, .app-header, .editor-panel, .app-footer, .template-selector, .modal-overlay {
         display: none !important;
