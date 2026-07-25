@@ -809,6 +809,30 @@ document.addEventListener('DOMContentLoaded', () => {
             dates: 'Jun 2018 - Feb 2021',
             desc: '• Análisis de mercado y elaboración de informes para clientes clave del sector retail.\n• Asistencia en la reestructuración de departamentos financieros.\n• Optimización de bases de datos internas de la compañía.'
         });
+        addExperienceField({
+            role: 'Asistente de Marketing',
+            company: 'Marketing Creativo 360',
+            dates: 'Ene 2016 - May 2018',
+            desc: '• Coordinación de campañas publicitarias en redes sociales.\n• Análisis de métricas de rendimiento y crecimiento de seguidores.\n• Colaboración con el equipo de diseño para crear material promocional.'
+        });
+        addExperienceField({
+            role: 'Analista de Datos',
+            company: 'DataTech Solutions',
+            dates: 'Ago 2014 - Dic 2015',
+            desc: '• Limpieza y estructuración de bases de datos de clientes.\n• Desarrollo de tableros de control interactivos en Power BI.\n• Presentación de insights a la gerencia ejecutiva.'
+        });
+        addExperienceField({
+            role: 'Ejecutivo de Ventas',
+            company: 'Comercializadora Nacional',
+            dates: 'Mar 2012 - Jul 2014',
+            desc: '• Manejo de una cartera de más de 50 clientes corporativos.\n• Cierre de negociaciones y cumplimiento de metas de ventas trimestrales.\n• Expansión del territorio de ventas en un 15%.'
+        });
+        addExperienceField({
+            role: 'Pasante de Administración',
+            company: 'Empresa Constructora XYZ',
+            dates: 'Sep 2011 - Feb 2012',
+            desc: '• Asistencia en procesos de recursos humanos y reclutamiento.\n• Organización de archivos físicos y digitales.\n• Soporte en tareas de contabilidad básica y facturación.'
+        });
 
         // Add Projects
         addProjectField({

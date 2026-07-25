@@ -577,8 +577,6 @@ body {
     color: var(--cv-text-dark);
     width: var(--a4-width);
     min-height: var(--a4-height);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
     padding: 18mm 16mm;
     display: flex;
     flex-direction: column;
