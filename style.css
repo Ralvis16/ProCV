@@ -1320,8 +1320,13 @@ body.template-classic .cv-side-col {
         print-color-adjust: exact !important;
     }
 
-    .cv-section, .dynamic-item, .cv-header {
+    .cv-item-block, .cv-header {
         page-break-inside: avoid;
         break-inside: avoid;
+    }
+
+    .cv-section-title {
+        page-break-after: avoid;
+        break-after: avoid;
     }
 }
