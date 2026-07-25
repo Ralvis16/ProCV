@@ -1337,6 +1337,16 @@ body.template-classic .cv-main-col {
         display: block !important;
     }
 
+    /* Fix Chrome Flexbox Pagination: Convert vertical flex containers to block */
+    .cv-section,
+    .cv-list-block,
+    .cv-item-block {
+        display: block !important;
+    }
+    .cv-section > *:not(:last-child) { margin-bottom: 0.75rem !important; }
+    .cv-list-block > *:not(:last-child) { margin-bottom: 1rem !important; }
+    .cv-item-block > *:not(:last-child) { margin-bottom: 0.2rem !important; }
+
     .cv-sheet * {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
