@@ -1281,7 +1281,7 @@ body.template-classic .cv-side-col {
 
     @page {
         size: A4 portrait;
-        margin: 0 !important; /* Force 0 physical margin to prevent Safari from adding extra pages */
+        margin: 18mm 16mm !important; /* Restore physical margins for multi-page harmony */
     }
 
     html, body {
@@ -1302,10 +1302,10 @@ body.template-classic .cv-side-col {
     .cv-sheet {
         display: block !important; /* CRITICAL: Prevents Safari from breaking flexbox across pages */
         width: 100% !important;
-        max-width: 210mm !important;
+        max-width: none !important;
         margin: 0 auto !important;
-        /* Use exactly the same padding as the desktop view to maintain perfect visual fidelity */
-        padding: 18mm 16mm !important;
+        /* Remove internal padding so we do not double up with @page margins */
+        padding: 0 !important;
         min-height: 0 !important; 
         box-sizing: border-box !important;
     }
