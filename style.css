@@ -1298,7 +1298,7 @@ body.template-classic .cv-main-col {
         min-height: 0 !important;
     }
 
-    .app-container, .preview-panel, .preview-scroller {
+    .app-container, .workspace, .preview-panel, .preview-scroller {
         display: block !important;
         height: auto !important;
         overflow: visible !important;
