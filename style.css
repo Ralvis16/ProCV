@@ -1318,27 +1318,6 @@ body.template-classic .cv-main-col {
         box-sizing: border-box !important;
     }
 
-    body:not(.template-minimal) .cv-body {
-        display: block !important;
-    }
-
-    body:not(.template-minimal) .cv-body::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    body:not(.template-minimal) .cv-side-col {
-        float: left !important;
-        width: 32% !important;
-        display: block !important;
-    }
-
-    body:not(.template-minimal) .cv-main-col {
-        float: right !important;
-        width: 64% !important;
-        display: block !important;
-    }
 
     /* Fix Chrome Flexbox Pagination: Convert vertical flex containers to block */
     .cv-section,
