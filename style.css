@@ -665,13 +665,13 @@ body {
 
 /* CV Layout Split Columns */
 .cv-body {
-    display: flex;
+    display: grid;
+    grid-template-columns: 32% 1fr;
     gap: 1.5rem;
     flex: 1;
 }
 
 .cv-main-col {
-    flex: 2;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -680,7 +680,6 @@ body {
 }
 
 .cv-side-col {
-    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -987,7 +986,7 @@ body {
     }
 
     .cv-body {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
 
@@ -1131,7 +1130,7 @@ body {
 
 /* TEMPLATE: MINIMAL (1 Column) */
 body.template-minimal .cv-body {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 2rem;
 }
 body.template-minimal .cv-side-col,
@@ -1308,7 +1307,6 @@ body.template-classic .cv-main-col {
     }
 
     .cv-sheet {
-        display: block !important; /* CRITICAL: Prevents Safari from breaking flexbox across pages */
         width: 100% !important;
         max-width: none !important;
         margin: 0 auto !important;
@@ -1319,12 +1317,7 @@ body.template-classic .cv-main-col {
     }
 
 
-    /* Fix Chrome Flexbox Pagination: Convert vertical flex containers to block */
-    .cv-section,
-    .cv-list-block,
-    .cv-item-block {
-        display: block !important;
-    }
+
     .cv-section > *:not(:last-child) { margin-bottom: 0.75rem !important; }
     .cv-list-block > *:not(:last-child) { margin-bottom: 1rem !important; }
     .cv-item-block > *:not(:last-child) { margin-bottom: 0.2rem !important; }
