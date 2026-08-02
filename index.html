@@ -85,20 +85,20 @@
                 </div>
 
                 <div class="action-buttons">
-                    <button id="btn-import-json" class="btn btn-secondary" title="Importar CV desde archivo JSON">
+                    <button id="btn-import-json" class="btn btn-secondary" data-i18n-title="tt_import" title="Importar CV desde archivo JSON">
                         <i data-lucide="upload"></i> <span data-i18n="btn_import">Cargar Datos</span>
                     </button>
                     <input type="file" id="input-json-file" accept=".json" style="display: none;">
-                    <button id="btn-export-json" class="btn btn-secondary" title="Exportar CV a archivo JSON">
+                    <button id="btn-export-json" class="btn btn-secondary" data-i18n-title="tt_export" title="Exportar CV a archivo JSON">
                         <i data-lucide="download"></i> <span data-i18n="btn_export">Guardar Datos</span>
                     </button>
-                    <button id="btn-sample-data" class="btn btn-secondary" title="Cargar datos de ejemplo">
+                    <button id="btn-sample-data" class="btn btn-secondary" data-i18n-title="tt_sample" title="Cargar datos de ejemplo">
                         <i data-lucide="sparkles"></i> <span data-i18n="btn_sample">Ejemplo</span>
                     </button>
-                    <button id="btn-clear-data" class="btn btn-secondary danger" title="Borrar todo">
+                    <button id="btn-clear-data" class="btn btn-secondary danger" data-i18n-title="tt_clear" title="Borrar todo">
                         <i data-lucide="trash-2"></i> <span data-i18n="btn_clear">Limpiar</span>
                     </button>
-                    <button id="btn-export-pdf" class="btn btn-primary" title="Imprimir o guardar como PDF">
+                    <button id="btn-export-pdf" class="btn btn-primary" data-i18n-title="tt_print" title="Imprimir o guardar como PDF">
                         <i data-lucide="printer"></i> <span data-i18n="btn_print">Imprimir PDF</span>
                     </button>
                 </div>
@@ -129,7 +129,7 @@
                                     <label data-i18n="lbl_photo">Fotografía de Perfil (Opcional)</label>
                                     <div style="display: flex; gap: 10px; align-items: center;">
                                         <input type="file" id="input-photo" accept="image/*" style="flex: 1;">
-                                        <button id="btn-remove-photo" class="btn btn-secondary danger" style="padding: 0.5rem; display: none;" title="Eliminar Foto"><i data-lucide="trash-2"></i></button>
+                                        <button id="btn-remove-photo" class="btn btn-secondary danger" style="padding: 0.5rem; display: none;" data-i18n-title="tt_remove_photo" title="Eliminar Foto"><i data-lucide="trash-2"></i></button>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -171,7 +171,7 @@
                         <details class="accordion-item" data-fixed="true">
                             <summary class="accordion-trigger">
                                 <span>
-                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-summary" title="Activar/Desactivar sección">
+                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-summary" data-i18n-title="tt_toggle_section" title="Activar/Desactivar sección">
                                     <i data-lucide="file-text"></i> <span data-i18n="sec_profile">Perfil Profesional (Sobre mí)</span>
                                 </span>
                                 <i data-lucide="chevron-down" class="chevron"></i>
@@ -192,14 +192,14 @@
                         <details class="accordion-item">
                             <summary class="accordion-trigger">
                                 <span>
-                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-projects" title="Activar/Desactivar sección">
+                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-projects" data-i18n-title="tt_toggle_section" title="Activar/Desactivar sección">
                                     <i data-lucide="folder-git-2"></i> <span data-i18n="sec_projects">Proyectos</span>
                                 </span>
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <div class="section-controls" onclick="event.preventDefault();">
-                                        <div class="drag-handle" title="Arrastrar para mover"><i data-lucide="grip-vertical"></i></div>
-                                        <button class="btn-section-up" title="Subir sección"><i data-lucide="arrow-up"></i></button>
-                                        <button class="btn-section-down" title="Bajar sección"><i data-lucide="arrow-down"></i></button>
+                                        <div class="drag-handle" data-i18n-title="tt_drag_move" title="Arrastrar para mover"><i data-lucide="grip-vertical"></i></div>
+                                        <button class="btn-section-up" data-i18n-title="tt_move_up" title="Subir sección"><i data-lucide="arrow-up"></i></button>
+                                        <button class="btn-section-down" data-i18n-title="tt_move_down" title="Bajar sección"><i data-lucide="arrow-down"></i></button>
                                     </div>
                                     <i data-lucide="chevron-down" class="chevron"></i>
                                 </div>
@@ -222,14 +222,14 @@
                         <details class="accordion-item">
                             <summary class="accordion-trigger">
                                 <span>
-                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-experience" title="Activar/Desactivar sección">
+                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-experience" data-i18n-title="tt_toggle_section" title="Activar/Desactivar sección">
                                     <i data-lucide="briefcase"></i> <span data-i18n="sec_experience">Experiencia Laboral</span>
                                 </span>
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <div class="section-controls" onclick="event.preventDefault();">
-                                        <div class="drag-handle" title="Arrastrar para mover"><i data-lucide="grip-vertical"></i></div>
-                                        <button class="btn-section-up" title="Subir sección"><i data-lucide="arrow-up"></i></button>
-                                        <button class="btn-section-down" title="Bajar sección"><i data-lucide="arrow-down"></i></button>
+                                        <div class="drag-handle" data-i18n-title="tt_drag_move" title="Arrastrar para mover"><i data-lucide="grip-vertical"></i></div>
+                                        <button class="btn-section-up" data-i18n-title="tt_move_up" title="Subir sección"><i data-lucide="arrow-up"></i></button>
+                                        <button class="btn-section-down" data-i18n-title="tt_move_down" title="Bajar sección"><i data-lucide="arrow-down"></i></button>
                                     </div>
                                     <i data-lucide="chevron-down" class="chevron"></i>
                                 </div>
@@ -252,14 +252,14 @@
                         <details class="accordion-item">
                             <summary class="accordion-trigger">
                                 <span>
-                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-education" title="Activar/Desactivar sección">
+                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-education" data-i18n-title="tt_toggle_section" title="Activar/Desactivar sección">
                                     <i data-lucide="graduation-cap"></i> <span data-i18n="sec_education">Educación</span>
                                 </span>
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <div class="section-controls" onclick="event.preventDefault();">
-                                        <div class="drag-handle" title="Arrastrar para mover"><i data-lucide="grip-vertical"></i></div>
-                                        <button class="btn-section-up" title="Subir sección"><i data-lucide="arrow-up"></i></button>
-                                        <button class="btn-section-down" title="Bajar sección"><i data-lucide="arrow-down"></i></button>
+                                        <div class="drag-handle" data-i18n-title="tt_drag_move" title="Arrastrar para mover"><i data-lucide="grip-vertical"></i></div>
+                                        <button class="btn-section-up" data-i18n-title="tt_move_up" title="Subir sección"><i data-lucide="arrow-up"></i></button>
+                                        <button class="btn-section-down" data-i18n-title="tt_move_down" title="Bajar sección"><i data-lucide="arrow-down"></i></button>
                                     </div>
                                     <i data-lucide="chevron-down" class="chevron"></i>
                                 </div>
@@ -282,14 +282,14 @@
                         <details class="accordion-item">
                             <summary class="accordion-trigger">
                                 <span>
-                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-softskills" title="Activar/Desactivar sección">
+                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-softskills" data-i18n-title="tt_toggle_section" title="Activar/Desactivar sección">
                                     <i data-lucide="star"></i> <span data-i18n="sec_softskills">Habilidades</span>
                                 </span>
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <div class="section-controls" onclick="event.preventDefault();">
-                                        <div class="drag-handle" title="Arrastrar para mover"><i data-lucide="grip-vertical"></i></div>
-                                        <button class="btn-section-up" title="Subir sección"><i data-lucide="arrow-up"></i></button>
-                                        <button class="btn-section-down" title="Bajar sección"><i data-lucide="arrow-down"></i></button>
+                                        <div class="drag-handle" data-i18n-title="tt_drag_move" title="Arrastrar para mover"><i data-lucide="grip-vertical"></i></div>
+                                        <button class="btn-section-up" data-i18n-title="tt_move_up" title="Subir sección"><i data-lucide="arrow-up"></i></button>
+                                        <button class="btn-section-down" data-i18n-title="tt_move_down" title="Bajar sección"><i data-lucide="arrow-down"></i></button>
                                     </div>
                                     <i data-lucide="chevron-down" class="chevron"></i>
                                 </div>
@@ -310,14 +310,14 @@
                         <details class="accordion-item">
                             <summary class="accordion-trigger">
                                 <span>
-                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-skills" title="Activar/Desactivar sección">
+                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-skills" data-i18n-title="tt_toggle_section" title="Activar/Desactivar sección">
                                     <i data-lucide="terminal"></i> <span data-i18n="sec_tech">Tecnología</span>
                                 </span>
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <div class="section-controls" onclick="event.preventDefault();">
-                                        <div class="drag-handle" title="Arrastrar para mover"><i data-lucide="grip-vertical"></i></div>
-                                        <button class="btn-section-up" title="Subir sección"><i data-lucide="arrow-up"></i></button>
-                                        <button class="btn-section-down" title="Bajar sección"><i data-lucide="arrow-down"></i></button>
+                                        <div class="drag-handle" data-i18n-title="tt_drag_move" title="Arrastrar para mover"><i data-lucide="grip-vertical"></i></div>
+                                        <button class="btn-section-up" data-i18n-title="tt_move_up" title="Subir sección"><i data-lucide="arrow-up"></i></button>
+                                        <button class="btn-section-down" data-i18n-title="tt_move_down" title="Bajar sección"><i data-lucide="arrow-down"></i></button>
                                     </div>
                                     <i data-lucide="chevron-down" class="chevron"></i>
                                 </div>
@@ -340,14 +340,14 @@
                         <details class="accordion-item">
                             <summary class="accordion-trigger">
                                 <span>
-                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-languages" title="Activar/Desactivar sección">
+                                    <input type="checkbox" class="section-toggle" checked data-section="cv-section-languages" data-i18n-title="tt_toggle_section" title="Activar/Desactivar sección">
                                     <i data-lucide="languages"></i> <span data-i18n="sec_languages">Idiomas</span>
                                 </span>
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <div class="section-controls" onclick="event.preventDefault();">
-                                        <div class="drag-handle" title="Arrastrar para mover"><i data-lucide="grip-vertical"></i></div>
-                                        <button class="btn-section-up" title="Subir sección"><i data-lucide="arrow-up"></i></button>
-                                        <button class="btn-section-down" title="Bajar sección"><i data-lucide="arrow-down"></i></button>
+                                        <div class="drag-handle" data-i18n-title="tt_drag_move" title="Arrastrar para mover"><i data-lucide="grip-vertical"></i></div>
+                                        <button class="btn-section-up" data-i18n-title="tt_move_up" title="Subir sección"><i data-lucide="arrow-up"></i></button>
+                                        <button class="btn-section-down" data-i18n-title="tt_move_down" title="Bajar sección"><i data-lucide="arrow-down"></i></button>
                                     </div>
                                     <i data-lucide="chevron-down" class="chevron"></i>
                                 </div>
@@ -374,9 +374,9 @@
                     <div class="footer-content">
                         <p>&copy; 2026 Raniell Alvis | ProCV</p>
                         <div class="legal-links">
-                            <a href="#" onclick="openLegalModal('modal-aviso-legal')">Aviso Legal</a> | 
-                            <a href="#" onclick="openLegalModal('modal-privacidad')">Política de Privacidad</a> | 
-                            <a href="#" onclick="openLegalModal('modal-storage')">Almacenamiento Local</a>
+                            <a href="#" onclick="openLegalModal('modal-aviso-legal')" data-i18n="footer_legal">Aviso Legal</a> | 
+                            <a href="#" onclick="openLegalModal('modal-privacidad')" data-i18n="footer_privacy">Política de Privacidad</a> | 
+                            <a href="#" onclick="openLegalModal('modal-storage')" data-i18n="footer_storage">Almacenamiento Local</a>
                         </div>
                     </div>
                 </footer>
@@ -520,10 +520,10 @@
     <div id="modal-aviso-legal" class="modal-overlay no-print legal-modal">
         <div class="modal-box legal-box">
             <div class="modal-header">
-                <h3 style="margin:0; font-size: 1.2rem;">Aviso Legal</h3>
+                <h3 style="margin:0; font-size: 1.2rem;" data-i18n="legal_title">Aviso Legal</h3>
                 <button class="btn-close-modal" onclick="closeLegalModal('modal-aviso-legal')"><i data-lucide="x"></i></button>
             </div>
-            <div class="modal-body legal-body">
+            <div class="modal-body legal-body" data-i18n-html="legal_body">
                 <p><strong>1. Datos Identificativos</strong><br>
                 En cumplimiento con el deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSICE), se informa que este sitio web es propiedad de [TU NOMBRE/EMPRESA], con domicilio en [TU DIRECCIÓN], y correo electrónico de contacto: [TU EMAIL].</p>
                 <p><strong>2. Uso del Portal</strong><br>
@@ -537,10 +537,10 @@
     <div id="modal-privacidad" class="modal-overlay no-print legal-modal">
         <div class="modal-box legal-box">
             <div class="modal-header">
-                <h3 style="margin:0; font-size: 1.2rem;">Política de Privacidad</h3>
+                <h3 style="margin:0; font-size: 1.2rem;" data-i18n="privacy_title">Política de Privacidad</h3>
                 <button class="btn-close-modal" onclick="closeLegalModal('modal-privacidad')"><i data-lucide="x"></i></button>
             </div>
-            <div class="modal-body legal-body">
+            <div class="modal-body legal-body" data-i18n-html="privacy_body">
                 <p><strong>Privacidad desde el Diseño (Client-Side Processing)</strong><br>
                 Esta herramienta ha sido desarrollada bajo el principio de máxima privacidad. <strong>No almacenamos, transmitimos, ni procesamos ningún dato personal de los usuarios en servidores externos.</strong></p>
                 <p><strong>1. Procesamiento de Datos Personales</strong><br>
@@ -556,10 +556,10 @@
     <div id="modal-storage" class="modal-overlay no-print legal-modal">
         <div class="modal-box legal-box">
             <div class="modal-header">
-                <h3 style="margin:0; font-size: 1.2rem;">Almacenamiento Local y Cookies</h3>
+                <h3 style="margin:0; font-size: 1.2rem;" data-i18n="storage_title">Almacenamiento Local y Cookies</h3>
                 <button class="btn-close-modal" onclick="closeLegalModal('modal-storage')"><i data-lucide="x"></i></button>
             </div>
-            <div class="modal-body legal-body">
+            <div class="modal-body legal-body" data-i18n-html="storage_body">
                 <p><strong>Ausencia de Cookies de Rastreo</strong><br>
                 Este sitio web <strong>no utiliza cookies de seguimiento, analítica (como Google Analytics) o publicidad.</strong></p>
                 <p><strong>Uso de LocalStorage (Almacenamiento Local)</strong><br>

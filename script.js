@@ -96,7 +96,62 @@ document.addEventListener('DOMContentLoaded', () => {
             theme_nordic: "Nórdico",
             tmpl_modern: "Moderno",
             tmpl_minimal: "Minimalista",
-            tmpl_classic: "Clásico"
+            tmpl_classic: "Clásico",
+            tt_toggle_section: "Activar/Desactivar sección",
+            tt_drag_move: "Arrastrar para mover",
+            tt_move_up: "Subir sección",
+            tt_move_down: "Bajar sección",
+            tt_remove_photo: "Eliminar Foto",
+            tt_remove_item: "Eliminar",
+            tt_import: "Importar CV desde archivo JSON",
+            tt_export: "Exportar CV a archivo JSON",
+            tt_sample: "Cargar datos de ejemplo",
+            tt_clear: "Borrar todo",
+            tt_print: "Imprimir o guardar como PDF",
+            tt_up: "Subir",
+            tt_down: "Bajar",
+            footer_legal: "Aviso Legal",
+            footer_privacy: "Política de Privacidad",
+            footer_storage: "Almacenamiento Local",
+            legal_title: "Aviso Legal",
+            legal_body: `
+                <p><strong>1. Datos Identificativos</strong><br>
+                En cumplimiento con el deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSICE), se informa que este sitio web es propiedad de [TU NOMBRE/EMPRESA], con domicilio en [TU DIRECCIÓN], y correo electrónico de contacto: [TU EMAIL].</p>
+                <p><strong>2. Uso del Portal</strong><br>
+                Esta aplicación proporciona acceso a herramientas de creación de currículums. El usuario asume la responsabilidad del uso del portal y se compromete a hacer un uso adecuado de sus funcionalidades.</p>
+                <p><strong>3. Propiedad Intelectual e Industrial</strong><br>
+                Todos los derechos reservados. Los diseños, estructura, código (excluyendo librerías de terceros open-source) y recursos son propiedad del responsable de la web.</p>
+            `,
+            privacy_title: "Política de Privacidad",
+            privacy_body: `
+                <p><strong>Privacidad desde el Diseño (Client-Side Processing)</strong><br>
+                Esta herramienta ha sido desarrollada bajo el principio de máxima privacidad. <strong>No almacenamos, transmitimos, ni procesamos ningún dato personal de los usuarios en servidores externos.</strong></p>
+                <p><strong>1. Procesamiento de Datos Personales</strong><br>
+                Toda la información ingresada por el usuario (nombres, teléfonos, correos electrónicos, historial laboral y fotografías) es procesada <strong>exclusivamente en el navegador web local</strong> del dispositivo.</p>
+                <p><strong>2. Generación del Documento</strong><br>
+                La generación del archivo PDF se realiza localmente utilizando librerías de cliente (Javascript). Ningún documento final ni dato intermediario viaja por internet hacia los creadores de esta página ni hacia terceros.</p>
+                <p><strong>3. Responsabilidad del Usuario</strong><br>
+                Al ser una aplicación 100% del lado del cliente, es responsabilidad exclusiva del usuario proteger la información generada o descargada en su propio dispositivo.</p>
+            `,
+            storage_title: "Almacenamiento Local y Cookies",
+            storage_body: `
+                <p><strong>Ausencia de Cookies de Rastreo</strong><br>
+                Este sitio web <strong>no utiliza cookies de seguimiento, analítica (como Google Analytics) o publicidad.</strong></p>
+                <p><strong>Uso de LocalStorage (Almacenamiento Local)</strong><br>
+                Para mejorar la experiencia del usuario y evitar la pérdida de información en caso de que la página se cierre o recargue accidentalmente, utilizamos la memoria de tu navegador (<code>localStorage</code>) con el único fin de:</p>
+                <ul>
+                    <li>Guardar temporalmente los textos, listas y el progreso de tu currículum.</li>
+                    <li>Recordar tus preferencias de diseño, colores y orden de las secciones.</li>
+                </ul>
+                <p>Estos datos <strong>nunca abandonan tu dispositivo</strong> y puedes eliminarlos en cualquier momento utilizando el botón "Limpiar Datos" dentro de la aplicación, o borrando los datos de navegación de tu navegador.</p>
+            `,
+            def_profile: "Perfil Profesional",
+            def_experience: "Experiencia Laboral",
+            def_projects: "Proyectos",
+            def_education: "Formación",
+            def_skills: "Tecnología",
+            def_softskills: "Habilidades",
+            def_languages: "Idiomas"
         },
         en: {
             theme_label: "Theme:",
@@ -187,7 +242,62 @@ document.addEventListener('DOMContentLoaded', () => {
             theme_nordic: "Nordic",
             tmpl_modern: "Modern",
             tmpl_minimal: "Minimal",
-            tmpl_classic: "Classic"
+            tmpl_classic: "Classic",
+            tt_toggle_section: "Enable/Disable section",
+            tt_drag_move: "Drag to move",
+            tt_move_up: "Move up",
+            tt_move_down: "Move down",
+            tt_remove_photo: "Remove Photo",
+            tt_remove_item: "Remove",
+            tt_import: "Import CV from JSON file",
+            tt_export: "Export CV to JSON file",
+            tt_sample: "Load sample data",
+            tt_clear: "Clear all",
+            tt_print: "Print or save as PDF",
+            tt_up: "Up",
+            tt_down: "Down",
+            footer_legal: "Legal Notice",
+            footer_privacy: "Privacy Policy",
+            footer_storage: "Local Storage",
+            legal_title: "Legal Notice",
+            legal_body: `
+                <p><strong>1. Identifying Data</strong><br>
+                In compliance with the duty of information, you are informed that this website is owned by [YOUR NAME/COMPANY], located at [YOUR ADDRESS], and contact email: [YOUR EMAIL].</p>
+                <p><strong>2. Use of the Portal</strong><br>
+                This application provides access to resume creation tools. The user assumes responsibility for the use of the portal and undertakes to make appropriate use of its functionalities.</p>
+                <p><strong>3. Intellectual and Industrial Property</strong><br>
+                All rights reserved. The designs, structure, code (excluding open-source third-party libraries), and resources are the property of the website owner.</p>
+            `,
+            privacy_title: "Privacy Policy",
+            privacy_body: `
+                <p><strong>Privacy by Design (Client-Side Processing)</strong><br>
+                This tool has been developed under the principle of maximum privacy. <strong>We do not store, transmit, or process any personal data of users on external servers.</strong></p>
+                <p><strong>1. Personal Data Processing</strong><br>
+                All information entered by the user (names, phones, emails, work history, and photographs) is processed <strong>exclusively in the local web browser</strong> of the device.</p>
+                <p><strong>2. Document Generation</strong><br>
+                The generation of the PDF file is done locally using client-side libraries (Javascript). No final document or intermediary data travels over the internet to the creators of this page or third parties.</p>
+                <p><strong>3. User Responsibility</strong><br>
+                Being a 100% client-side application, it is the exclusive responsibility of the user to protect the information generated or downloaded on their own device.</p>
+            `,
+            storage_title: "Local Storage and Cookies",
+            storage_body: `
+                <p><strong>No Tracking Cookies</strong><br>
+                This website <strong>does not use tracking, analytics (such as Google Analytics), or advertising cookies.</strong></p>
+                <p><strong>Use of LocalStorage</strong><br>
+                To improve the user experience and prevent the loss of information in case the page is closed or accidentally reloaded, we use your browser's memory (<code>localStorage</code>) for the sole purpose of:</p>
+                <ul>
+                    <li>Temporarily saving texts, lists, and the progress of your resume.</li>
+                    <li>Remembering your design preferences, colors, and section order.</li>
+                </ul>
+                <p>This data <strong>never leaves your device</strong> and you can delete it at any time using the "Clear Data" button within the application, or by clearing your browser's browsing data.</p>
+            `,
+            def_profile: "Professional Profile",
+            def_experience: "Work Experience",
+            def_projects: "Projects",
+            def_education: "Education",
+            def_skills: "Technology",
+            def_softskills: "Skills",
+            def_languages: "Languages"
         }
     };
 
@@ -204,6 +314,52 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+            const key = el.getAttribute('data-i18n-html');
+            if (t[key]) {
+                el.innerHTML = t[key];
+            }
+        });
+        document.querySelectorAll('[data-i18n-title]').forEach(el => {
+            const key = el.getAttribute('data-i18n-title');
+            if (t[key]) {
+                el.setAttribute('title', t[key]);
+            }
+        });
+
+        // Translate default section titles if they match previous/current defaults
+        const allLangs = Object.keys(translations);
+        const inputMap = {
+            'input-title-profile': 'def_profile',
+            'input-title-experience': 'def_experience',
+            'input-title-projects': 'def_projects',
+            'input-title-education': 'def_education',
+            'input-title-skills': 'def_skills',
+            'input-title-softskills': 'def_softskills',
+            'input-title-languages': 'def_languages'
+        };
+        for (const [id, key] of Object.entries(inputMap)) {
+            const input = document.getElementById(id);
+            if (input) {
+                const currentVal = input.value;
+                const isDefault = allLangs.some(l => translations[l][key] === currentVal);
+                if (isDefault) {
+                    input.value = t[key];
+                }
+            }
+        }
+
+        // If sample data is currently active, reload it in the new language
+        const inputFullname = document.getElementById('input-fullname');
+        if (inputFullname && inputFullname.value === 'Alex Torto Ramos') {
+            const btnSampleData = document.getElementById('btn-sample-data');
+            if (btnSampleData) {
+                // Call it directly to bypass event listeners creating duplicate data if we didn't clear first
+                btnSampleData.click();
+            }
+        }
+
+        updatePreview();
     }
 
     // DOM Elements - Form Fields
@@ -295,9 +451,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return `
             <div class="dynamic-item" id="${id}">
                 <div class="item-controls">
-                    <button type="button" class="btn-item-control btn-move-up" title="Subir"><i data-lucide="arrow-up"></i></button>
-                    <button type="button" class="btn-item-control btn-move-down" title="Bajar"><i data-lucide="arrow-down"></i></button>
-                    <button type="button" class="btn-item-control btn-remove-item" title="Eliminar"><i data-lucide="x"></i></button>
+                    <button type="button" class="btn-item-control btn-move-up" data-i18n-title="tt_up" title="Subir"><i data-lucide="arrow-up"></i></button>
+                    <button type="button" class="btn-item-control btn-move-down" data-i18n-title="tt_down" title="Bajar"><i data-lucide="arrow-down"></i></button>
+                    <button type="button" class="btn-item-control btn-remove-item" data-i18n-title="tt_remove_item" title="Eliminar"><i data-lucide="x"></i></button>
                 </div>
                 ${innerHtml}
             </div>
@@ -908,7 +1064,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.closest('.custom-dropdown').classList.remove('open');
                 
                 // Save and apply lang
-                localStorage.setItem('procv-lang', lang);
+                localStorage.setItem('procv_lang', lang);
                 updateLanguage(lang);
             });
         });
@@ -1042,103 +1198,204 @@ document.addEventListener('DOMContentLoaded', () => {
 
         resetSectionOrderToDefault();
 
-        // Load Text fields
-        inputFullname.value = 'Alex Torto Ramos';
-        inputTitle.value = 'Director de Proyectos // Consultor Estratégico';
-        inputEmail.value = 'alextorto@correo.com';
-        inputPhone.value = '+34 612 345 678';
-        inputLocation.value = 'Barcelona, España';
-        inputWebsite.value = 'alextorto.com';
-        inputLink.value = 'linkedin.com/in/alextorto';
-        inputLinkedin.value = 'linkedin.com/in/alextorto';
-        inputSummary.value = 'Profesional proactivo con más de 5 años de experiencia liderando equipos multidisciplinares y optimizando procesos operativos. Apasionado por la mejora continua, la analítica de datos y la gestión ágil de proyectos. Enfocado en maximizar la eficiencia y alcanzar los objetivos organizacionales de manera sostenible.';
-        
-        inputTitleProfile.value = 'Perfil Profesional';
-        inputTitleExperience.value = 'Experiencia Laboral';
-        inputTitleProjects.value = 'Proyectos';
-        inputTitleEducation.value = 'Formación';
-        inputTitleSkills.value = 'Tecnología';
-        inputTitleSoftSkills.value = 'Habilidades';
-        inputSoftSkillsDesc.value = '• Gestión ágil de proyectos (Scrum, Kanban)\n• Liderazgo de equipos multidisciplinares\n• Comunicación efectiva y negociación\n• Resolución de problemas y pensamiento crítico';
-        inputTitleLanguages.value = 'Idiomas';
+        const currentLang = localStorage.getItem('procv_lang') || 'es';
+        if (currentLang === 'en') {
+            inputFullname.value = 'Alex Torto Ramos';
+            inputTitle.value = 'Project Manager // Strategic Consultant';
+            inputEmail.value = 'alextorto@email.com';
+            inputPhone.value = '+1 234 567 890';
+            inputLocation.value = 'New York, USA';
+            inputWebsite.value = 'alextorto.com';
+            inputLink.value = 'linkedin.com/in/alextorto';
+            inputLinkedin.value = 'linkedin.com/in/alextorto';
+            inputSummary.value = 'Proactive professional with over 5 years of experience leading multidisciplinary teams and optimizing operational processes. Passionate about continuous improvement, data analytics, and agile project management. Focused on maximizing efficiency and achieving organizational goals sustainably.';
+            
+            inputTitleProfile.value = 'Professional Profile';
+            inputTitleExperience.value = 'Work Experience';
+            inputTitleProjects.value = 'Projects';
+            inputTitleEducation.value = 'Education';
+            inputTitleSkills.value = 'Technology';
+            inputTitleSoftSkills.value = 'Skills';
+            inputSoftSkillsDesc.value = '• Agile project management (Scrum, Kanban)\n• Multidisciplinary team leadership\n• Effective communication and negotiation\n• Problem-solving and critical thinking';
+            inputTitleLanguages.value = 'Languages';
 
-        // Clear dynamic lists first
-        experienceList.innerHTML = '';
-        projectsList.innerHTML = '';
-        educationList.innerHTML = '';
-        if(skillsList) skillsList.innerHTML = '';
-        if(languagesList) languagesList.innerHTML = '';
+            // Clear dynamic lists first
+            experienceList.innerHTML = '';
+            projectsList.innerHTML = '';
+            educationList.innerHTML = '';
+            if(skillsList) skillsList.innerHTML = '';
+            if(languagesList) languagesList.innerHTML = '';
 
-        // Load Sample Dynamic Data
-        addLanguageField('Español', 'Nativo');
-        addLanguageField('Inglés', 'Avanzado');
-        addLanguageField('Francés', 'Intermedio');
-        
-        addSkillField('Gestión Ágil', '5');
-        addSkillField('Liderazgo', '4');
-        addSkillField('Microsoft Excel Avanzado', '5');
-        addSkillField('Negociación', '4');
-        addSkillField('Python', '3');
-        addExperienceField({
-            role: 'Gestor de Proyectos Senior',
-            company: 'Innovación Global S.A.',
-            dates: 'Mar 2021 - Presente',
-            desc: '• Liderazgo de un equipo de 15 personas para la implementación de nuevos procesos operativos.\n• Reducción de costes operativos en un 20% durante el primer año.\n• Planificación y ejecución de presupuestos anuales y reporte de KPIs.'
-        });
-        addExperienceField({
-            role: 'Consultor Junior',
-            company: 'Estrategias Empresariales LLC',
-            dates: 'Jun 2018 - Feb 2021',
-            desc: '• Análisis de mercado y elaboración de informes para clientes clave del sector retail.\n• Asistencia en la reestructuración de departamentos financieros.\n• Optimización de bases de datos internas de la compañía.'
-        });
-        addExperienceField({
-            role: 'Asistente de Marketing',
-            company: 'Marketing Creativo 360',
-            dates: 'Ene 2016 - May 2018',
-            desc: '• Coordinación de campañas publicitarias en redes sociales.\n• Análisis de métricas de rendimiento y crecimiento de seguidores.\n• Colaboración con el equipo de diseño para crear material promocional.'
-        });
-        addExperienceField({
-            role: 'Analista de Datos',
-            company: 'DataTech Solutions',
-            dates: 'Ago 2014 - Dic 2015',
-            desc: '• Limpieza y estructuración de bases de datos de clientes.\n• Desarrollo de tableros de control interactivos en Power BI.\n• Presentación de insights a la gerencia ejecutiva.'
-        });
-        addExperienceField({
-            role: 'Ejecutivo de Ventas',
-            company: 'Comercializadora Nacional',
-            dates: 'Mar 2012 - Jul 2014',
-            desc: '• Manejo de una cartera de más de 50 clientes corporativos.\n• Cierre de negociaciones y cumplimiento de metas de ventas trimestrales.\n• Expansión del territorio de ventas en un 15%.'
-        });
-        addExperienceField({
-            role: 'Pasante de Administración',
-            company: 'Empresa Constructora XYZ',
-            dates: 'Sep 2011 - Feb 2012',
-            desc: '• Asistencia en procesos de recursos humanos y reclutamiento.\n• Organización de archivos físicos y digitales.\n• Soporte en tareas de contabilidad básica y facturación.'
-        });
+            // Load Sample Dynamic Data
+            addLanguageField('Spanish', 'Native');
+            addLanguageField('English', 'Advanced');
+            addLanguageField('French', 'Intermediate');
+            
+            addSkillField('Agile Management', '5');
+            addSkillField('Leadership', '4');
+            addSkillField('Advanced Microsoft Excel', '5');
+            addSkillField('Negotiation', '4');
+            addSkillField('Python', '3');
+            
+            addExperienceField({
+                role: 'Senior Project Manager',
+                company: 'Global Innovation Inc.',
+                dates: 'Mar 2021 - Present',
+                desc: '• Led a 15-person team to implement new operational processes.\n• Reduced operational costs by 20% in the first year.\n• Planned and executed annual budgets and KPI reporting.'
+            });
+            addExperienceField({
+                role: 'Junior Consultant',
+                company: 'Business Strategies LLC',
+                dates: 'Jun 2018 - Feb 2021',
+                desc: '• Conducted market analysis and prepared reports for key retail clients.\n• Assisted in restructuring financial departments.\n• Optimized internal company databases.'
+            });
+            addExperienceField({
+                role: 'Marketing Assistant',
+                company: 'Creative Marketing 360',
+                dates: 'Jan 2016 - May 2018',
+                desc: '• Coordinated social media advertising campaigns.\n• Analyzed performance metrics and follower growth.\n• Collaborated with the design team to create promotional material.'
+            });
+            addExperienceField({
+                role: 'Data Analyst',
+                company: 'DataTech Solutions',
+                dates: 'Aug 2014 - Dec 2015',
+                desc: '• Cleaned and structured client databases.\n• Developed interactive dashboards in Power BI.\n• Presented insights to executive management.'
+            });
+            addExperienceField({
+                role: 'Sales Executive',
+                company: 'National Trading Co.',
+                dates: 'Mar 2012 - Jul 2014',
+                desc: '• Managed a portfolio of over 50 corporate clients.\n• Closed negotiations and met quarterly sales targets.\n• Expanded sales territory by 15%.'
+            });
+            addExperienceField({
+                role: 'Administration Intern',
+                company: 'XYZ Construction Co.',
+                dates: 'Sep 2011 - Feb 2012',
+                desc: '• Assisted in human resources and recruitment processes.\n• Organized physical and digital files.\n• Supported basic accounting and billing tasks.'
+            });
 
-        // Add Projects
-        addProjectField({
-            title: 'Transformación Digital Departamental',
-            tech: 'Gestión del Cambio, ERP, Formación',
-            desc: 'Diseño y ejecución de la estrategia de transformación digital para el departamento de ventas, logrando una adopción del 95% del nuevo sistema CRM en un periodo de 3 meses.'
-        });
-        addProjectField({
-            title: 'Optimización de Cadena de Suministro',
-            tech: 'Análisis de Datos, Logística, Negociación',
-            desc: 'Proyecto de reestructuración logística que resultó en la reducción de tiempos de entrega en un 15% y aumento de la satisfacción general del cliente.'
-        });
+            // Add Projects
+            addProjectField({
+                title: 'Departmental Digital Transformation',
+                tech: 'Change Management, ERP, Training',
+                desc: 'Designed and executed the digital transformation strategy for the sales department, achieving 95% adoption of the new CRM system within 3 months.'
+            });
+            addProjectField({
+                title: 'Supply Chain Optimization',
+                tech: 'Data Analysis, Logistics, Negotiation',
+                desc: 'Logistics restructuring project resulting in a 15% reduction in delivery times and increased overall customer satisfaction.'
+            });
 
-        // Add Education
-        addEducationField({
-            degree: 'Máster en Dirección de Empresas (MBA)',
-            school: 'Universidad de Barcelona',
-            dates: '2016 - 2018'
-        });
-        addEducationField({
-            degree: 'C.F.G.M. en Sistemas Microinformáticos y Redes (SMR)',
-            school: 'Colegio Técnico Metropolitano',
-            dates: '2022 - 2024'
-        });
+            // Add Education
+            addEducationField({
+                degree: 'Master of Business Administration (MBA)',
+                school: 'University of Barcelona',
+                dates: '2016 - 2018'
+            });
+            addEducationField({
+                degree: 'A.A.S. in Computer Systems and Networks',
+                school: 'Metropolitan Technical College',
+                dates: '2022 - 2024'
+            });
+        } else {
+            // Load Text fields
+            inputFullname.value = 'Alex Torto Ramos';
+            inputTitle.value = 'Director de Proyectos // Consultor Estratégico';
+            inputEmail.value = 'alextorto@correo.com';
+            inputPhone.value = '+34 612 345 678';
+            inputLocation.value = 'Barcelona, España';
+            inputWebsite.value = 'alextorto.com';
+            inputLink.value = 'linkedin.com/in/alextorto';
+            inputLinkedin.value = 'linkedin.com/in/alextorto';
+            inputSummary.value = 'Profesional proactivo con más de 5 años de experiencia liderando equipos multidisciplinares y optimizando procesos operativos. Apasionado por la mejora continua, la analítica de datos y la gestión ágil de proyectos. Enfocado en maximizar la eficiencia y alcanzar los objetivos organizacionales de manera sostenible.';
+            
+            inputTitleProfile.value = 'Perfil Profesional';
+            inputTitleExperience.value = 'Experiencia Laboral';
+            inputTitleProjects.value = 'Proyectos';
+            inputTitleEducation.value = 'Formación';
+            inputTitleSkills.value = 'Tecnología';
+            inputTitleSoftSkills.value = 'Habilidades';
+            inputSoftSkillsDesc.value = '• Gestión ágil de proyectos (Scrum, Kanban)\n• Liderazgo de equipos multidisciplinares\n• Comunicación efectiva y negociación\n• Resolución de problemas y pensamiento crítico';
+            inputTitleLanguages.value = 'Idiomas';
+
+            // Clear dynamic lists first
+            experienceList.innerHTML = '';
+            projectsList.innerHTML = '';
+            educationList.innerHTML = '';
+            if(skillsList) skillsList.innerHTML = '';
+            if(languagesList) languagesList.innerHTML = '';
+
+            // Load Sample Dynamic Data
+            addLanguageField('Español', 'Nativo');
+            addLanguageField('Inglés', 'Avanzado');
+            addLanguageField('Francés', 'Intermedio');
+            
+            addSkillField('Gestión Ágil', '5');
+            addSkillField('Liderazgo', '4');
+            addSkillField('Microsoft Excel Avanzado', '5');
+            addSkillField('Negociación', '4');
+            addSkillField('Python', '3');
+            addExperienceField({
+                role: 'Gestor de Proyectos Senior',
+                company: 'Innovación Global S.A.',
+                dates: 'Mar 2021 - Present',
+                desc: '• Liderazgo de un equipo de 15 personas para la implementación de nuevos procesos operativos.\n• Reducción de costes operativos en un 20% durante el primer año.\n• Planificación y ejecución de presupuestos anuales y reporte de KPIs.'
+            });
+            addExperienceField({
+                role: 'Consultor Junior',
+                company: 'Estrategias Empresariales LLC',
+                dates: 'Jun 2018 - Feb 2021',
+                desc: '• Análisis de mercado y elaboración de informes para clientes clave del sector retail.\n• Asistencia en la reestructuración de departamentos financieros.\n• Optimización de bases de datos internas de la compañía.'
+            });
+            addExperienceField({
+                role: 'Asistente de Marketing',
+                company: 'Marketing Creativo 360',
+                dates: 'Ene 2016 - May 2018',
+                desc: '• Coordinación de campañas publicitarias en redes sociales.\n• Análisis de métricas de rendimiento y crecimiento de seguidores.\n• Colaboración con el equipo de diseño para crear material promocional.'
+            });
+            addExperienceField({
+                role: 'Analista de Datos',
+                company: 'DataTech Solutions',
+                dates: 'Ago 2014 - Dic 2015',
+                desc: '• Limpieza y estructuración de bases de datos de clientes.\n• Desarrollo de tableros de control interactivos en Power BI.\n• Presentación de insights a la gerencia ejecutiva.'
+            });
+            addExperienceField({
+                role: 'Ejecutivo de Ventas',
+                company: 'Comercializadora Nacional',
+                dates: 'Mar 2012 - Jul 2014',
+                desc: '• Manejo de una cartera de más de 50 clientes corporativos.\n• Cierre de negociaciones y cumplimiento de metas de ventas trimestrales.\n• Expansión del territorio de ventas en un 15%.'
+            });
+            addExperienceField({
+                role: 'Pasante de Administración',
+                company: 'Empresa Constructora XYZ',
+                dates: 'Sep 2011 - Feb 2012',
+                desc: '• Asistencia en procesos de recursos humanos y reclutamiento.\n• Organización de archivos físicos y digitales.\n• Soporte en tareas de contabilidad básica y facturación.'
+            });
+
+            // Add Projects
+            addProjectField({
+                title: 'Transformación Digital Departamental',
+                tech: 'Gestión del Cambio, ERP, Formación',
+                desc: 'Diseño y ejecución de la estrategia de transformación digital para el departamento de ventas, logrando una adopción del 95% del nuevo sistema CRM en un periodo de 3 meses.'
+            });
+            addProjectField({
+                title: 'Optimización de Cadena de Suministro',
+                tech: 'Análisis de Datos, Logística, Negociación',
+                desc: 'Proyecto de reestructuración logística que resultó en la reducción de tiempos de entrega en un 15% y aumento de la satisfacción general del cliente.'
+            });
+
+            // Add Education
+            addEducationField({
+                degree: 'Máster en Dirección de Empresas (MBA)',
+                school: 'Universidad de Barcelona',
+                dates: '2016 - 2018'
+            });
+            addEducationField({
+                degree: 'C.F.G.M. en Sistemas Microinformáticos y Redes (SMR)',
+                school: 'Colegio Técnico Metropolitano',
+                dates: '2022 - 2024'
+            });
+        }
 
         currentPhoto = null;
         if(inputPhoto) inputPhoto.value = '';
@@ -1384,7 +1641,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function loadFromLocalStorage() {
         // Load Language
-        const savedLang = localStorage.getItem('procv-lang') || 'es';
+        const savedLang = localStorage.getItem('procv_lang') || 'es';
         const langDropdownContainer = document.getElementById('lang-dropdown-container');
         if (langDropdownContainer) {
             const langItems = document.querySelectorAll('#lang-dropdown-menu .dropdown-item');
