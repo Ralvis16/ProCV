@@ -28,43 +28,78 @@
             <div class="header-actions">
                 <div class="header-selectors">
                     <!-- Theme Switcher -->
-                    <div class="theme-selector">
-                        <span class="selector-label">Tema:</span>
-                        <div class="theme-buttons">
-                            <button class="theme-btn btn-sapphire active" data-theme="sapphire" title="Tech Sapphire"></button>
-                            <button class="theme-btn btn-cyberpunk" data-theme="cyberpunk" title="Cyberpunk Neon"></button>
-                            <button class="theme-btn btn-emerald" data-theme="emerald" title="Emerald Mint"></button>
-                            <button class="theme-btn btn-nordic" data-theme="nordic" title="Nordic Slate"></button>
+                    <div class="theme-selector custom-dropdown" id="theme-dropdown-container">
+                        <span class="selector-label" data-i18n="theme_label">Tema:</span>
+                        <div class="dropdown-header" id="theme-dropdown-header">
+                            <div class="theme-btn btn-sapphire active" style="pointer-events: none; width: 16px; height: 16px;" id="theme-selected-icon"></div>
+                            <i data-lucide="chevron-down" class="dropdown-icon"></i>
                         </div>
+                        <ul class="dropdown-menu" id="theme-dropdown-menu">
+                            <li class="dropdown-item active" data-theme="sapphire">
+                                <div class="theme-btn btn-sapphire" style="pointer-events: none; width: 16px; height: 16px;"></div> Sapphire
+                            </li>
+                            <li class="dropdown-item" data-theme="cyberpunk">
+                                <div class="theme-btn btn-cyberpunk" style="pointer-events: none; width: 16px; height: 16px;"></div> Cyberpunk
+                            </li>
+                            <li class="dropdown-item" data-theme="emerald">
+                                <div class="theme-btn btn-emerald" style="pointer-events: none; width: 16px; height: 16px;"></div> Emerald
+                            </li>
+                            <li class="dropdown-item" data-theme="nordic">
+                                <div class="theme-btn btn-nordic" style="pointer-events: none; width: 16px; height: 16px;"></div> Nordic
+                            </li>
+                        </ul>
                     </div>
                     
                     <!-- Template Switcher -->
-                    <div class="template-selector">
-                        <span class="selector-label">Estructura:</span>
-                        <div class="template-buttons">
-                            <button class="btn-template active" data-template="modern" title="Moderno (2 Columnas)"><i data-lucide="columns"></i></button>
-                            <button class="btn-template" data-template="minimal" title="Minimalista (1 Columna)"><i data-lucide="align-center"></i></button>
-                            <button class="btn-template" data-template="classic" title="Clásico (Limpio)"><i data-lucide="layout-list"></i></button>
+                    <div class="template-selector custom-dropdown" id="template-dropdown-container">
+                        <span class="selector-label" data-i18n="structure_label">Estructura:</span>
+                        <div class="dropdown-header" id="template-dropdown-header">
+                            <span class="selected-text" id="template-selected-text" style="display:flex; align-items:center; gap:0.5rem;"><i data-lucide="columns"></i> Modern</span>
+                            <i data-lucide="chevron-down" class="dropdown-icon"></i>
                         </div>
+                        <ul class="dropdown-menu" id="template-dropdown-menu">
+                            <li class="dropdown-item active" data-template="modern">
+                                <i data-lucide="columns"></i> Modern
+                            </li>
+                            <li class="dropdown-item" data-template="minimal">
+                                <i data-lucide="align-center"></i> Minimal
+                            </li>
+                            <li class="dropdown-item" data-template="classic">
+                                <i data-lucide="layout-list"></i> Classic
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Language Switcher -->
+                    <div class="lang-selector custom-dropdown" id="lang-dropdown-container">
+                        <span class="selector-label" data-i18n="lang_label">Idioma:</span>
+                        <div class="dropdown-header" id="lang-dropdown-header">
+                            <span class="selected-text" id="lang-selected-text">🇪🇸 ES</span>
+                            <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                        </div>
+                        <ul class="dropdown-menu" id="lang-dropdown-menu">
+                            <li class="dropdown-item active" data-lang="es">🇪🇸 ES</li>
+                            <li class="dropdown-item" data-lang="en">🇺🇸 EN</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="action-buttons">
                     <button id="btn-import-json" class="btn btn-secondary" title="Importar CV desde archivo JSON">
-                        <i data-lucide="upload"></i> Cargar Datos
+                        <i data-lucide="upload"></i> <span data-i18n="btn_import">Cargar Datos</span>
                     </button>
                     <input type="file" id="input-json-file" accept=".json" style="display: none;">
                     <button id="btn-export-json" class="btn btn-secondary" title="Exportar CV a archivo JSON">
-                        <i data-lucide="download"></i> Guardar Datos
+                        <i data-lucide="download"></i> <span data-i18n="btn_export">Guardar Datos</span>
                     </button>
                     <button id="btn-sample-data" class="btn btn-secondary" title="Cargar datos de ejemplo">
-                        <i data-lucide="sparkles"></i> Ejemplo
+                        <i data-lucide="sparkles"></i> <span data-i18n="btn_sample">Ejemplo</span>
                     </button>
                     <button id="btn-clear-data" class="btn btn-secondary danger" title="Borrar todo">
-                        <i data-lucide="trash-2"></i> Limpiar
+                        <i data-lucide="trash-2"></i> <span data-i18n="btn_clear">Limpiar</span>
                     </button>
                     <button id="btn-export-pdf" class="btn btn-primary" title="Imprimir o guardar como PDF">
-                        <i data-lucide="printer"></i> Imprimir PDF
+                        <i data-lucide="printer"></i> <span data-i18n="btn_print">Imprimir PDF</span>
                     </button>
                 </div>
             </div>

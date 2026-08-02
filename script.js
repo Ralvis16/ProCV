@@ -3,6 +3,47 @@
 // ----------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', () => {
+    // ----------------------------------------------------
+    // i18n Translation Dictionary
+    // ----------------------------------------------------
+    const translations = {
+        es: {
+            theme_label: "Tema:",
+            structure_label: "Estructura:",
+            lang_label: "Idioma:",
+            btn_import: "Importar",
+            btn_export: "Exportar",
+            btn_sample: "Ejemplo",
+            btn_clear: "Limpiar",
+            btn_print: "Imprimir PDF"
+        },
+        en: {
+            theme_label: "Theme:",
+            structure_label: "Layout:",
+            lang_label: "Language:",
+            btn_import: "Load Data",
+            btn_export: "Save Data",
+            btn_sample: "Sample",
+            btn_clear: "Clear All",
+            btn_print: "Print PDF"
+        }
+    };
+
+    function updateLanguage(lang) {
+        const t = translations[lang];
+        if (!t) return;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key]) {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = t[key];
+                } else {
+                    el.textContent = t[key];
+                }
+            }
+        });
+    }
+
     // DOM Elements - Form Fields
     const inputFullname = document.getElementById('input-fullname');
     const inputTitle = document.getElementById('input-title');
@@ -592,45 +633,109 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------
-    // Color Themes
+    // Dropdowns Logic (Theme, Template, Language)
     // ----------------------------------------------------
-    themeButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            themeButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            const theme = btn.getAttribute('data-theme');
-            
-            // Remove previous theme classes
-            document.body.className = Array.from(document.body.classList)
-                .filter(c => !c.startsWith('theme-'))
-                .join(' ');
-            
-            document.body.classList.add(`theme-${theme}`);
-            saveToLocalStorage();
-        });
+    const dropdownContainers = document.querySelectorAll('.custom-dropdown');
+
+    // Generic Dropdown Toggle
+    dropdownContainers.forEach(container => {
+        const header = container.querySelector('.dropdown-header');
+        if (header) {
+            header.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Close others
+                dropdownContainers.forEach(c => {
+                    if (c !== container) c.classList.remove('open');
+                });
+                container.classList.toggle('open');
+            });
+        }
     });
 
-    // ----------------------------------------------------
-    // Templates (Structure)
-    // ----------------------------------------------------
-    const templateButtons = document.querySelectorAll('.btn-template');
-    templateButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            templateButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            const template = btn.getAttribute('data-template');
-            
-            // Remove previous template classes
-            document.body.className = Array.from(document.body.classList)
-                .filter(c => !c.startsWith('template-'))
-                .join(' ');
-                
-            document.body.classList.add(`template-${template}`);
-            saveToLocalStorage();
-        });
+    document.addEventListener('click', () => {
+        dropdownContainers.forEach(c => c.classList.remove('open'));
     });
+
+    // Theme Switcher Logic
+    const themeDropdownMenu = document.getElementById('theme-dropdown-menu');
+    const themeSelectedIcon = document.getElementById('theme-selected-icon');
+    if (themeDropdownMenu && themeSelectedIcon) {
+        const themeItems = themeDropdownMenu.querySelectorAll('.dropdown-item');
+        themeItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const theme = item.getAttribute('data-theme');
+                
+                themeItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                
+                // Update header icon
+                themeSelectedIcon.className = `theme-btn btn-${theme} active`;
+                
+                // Close dropdown
+                item.closest('.custom-dropdown').classList.remove('open');
+                
+                // Apply theme
+                document.body.className = Array.from(document.body.classList)
+                    .filter(c => !c.startsWith('theme-'))
+                    .join(' ');
+                document.body.classList.add(`theme-${theme}`);
+                saveToLocalStorage();
+            });
+        });
+    }
+
+    // Template Switcher Logic
+    const templateDropdownMenu = document.getElementById('template-dropdown-menu');
+    const templateSelectedText = document.getElementById('template-selected-text');
+    if (templateDropdownMenu && templateSelectedText) {
+        const templateItems = templateDropdownMenu.querySelectorAll('.dropdown-item');
+        templateItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const template = item.getAttribute('data-template');
+                
+                templateItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                
+                // Update header text and icon
+                templateSelectedText.innerHTML = item.innerHTML;
+                
+                // Close dropdown
+                item.closest('.custom-dropdown').classList.remove('open');
+                
+                // Apply template
+                document.body.className = Array.from(document.body.classList)
+                    .filter(c => !c.startsWith('template-'))
+                    .join(' ');
+                document.body.classList.add(`template-${template}`);
+                saveToLocalStorage();
+            });
+        });
+    }
+
+    // Language Switcher Logic
+    const langDropdownMenu = document.getElementById('lang-dropdown-menu');
+    const langSelectedText = document.getElementById('lang-selected-text');
+    if (langDropdownMenu && langSelectedText) {
+        const langItems = langDropdownMenu.querySelectorAll('.dropdown-item');
+        langItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const lang = item.getAttribute('data-lang');
+                
+                langItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                
+                langSelectedText.textContent = item.textContent;
+                item.closest('.custom-dropdown').classList.remove('open');
+                
+                // Save and apply lang
+                localStorage.setItem('procv-lang', lang);
+                updateLanguage(lang);
+            });
+        });
+    }
 
     // ----------------------------------------------------
     // Section Reordering
@@ -1089,18 +1194,35 @@ document.addEventListener('DOMContentLoaded', () => {
             .filter(id => id);
         localStorage.setItem('procv-section-order', JSON.stringify(orderedIds));
 
-        const activeThemeBtn = document.querySelector('.theme-btn.active');
-        if (activeThemeBtn) {
-            localStorage.setItem('procv-theme', activeThemeBtn.getAttribute('data-theme'));
+        const activeThemeItem = document.querySelector('#theme-dropdown-menu .dropdown-item.active');
+        if (activeThemeItem) {
+            localStorage.setItem('procv-theme', activeThemeItem.getAttribute('data-theme'));
         }
         
-        const activeTemplateBtn = document.querySelector('.btn-template.active');
-        if (activeTemplateBtn) {
-            localStorage.setItem('procv-template', activeTemplateBtn.getAttribute('data-template'));
+        const activeTemplateItem = document.querySelector('#template-dropdown-menu .dropdown-item.active');
+        if (activeTemplateItem) {
+            localStorage.setItem('procv-template', activeTemplateItem.getAttribute('data-template'));
         }
     }
 
     function loadFromLocalStorage() {
+        // Load Language
+        const savedLang = localStorage.getItem('procv-lang') || 'es';
+        const langDropdownContainer = document.getElementById('lang-dropdown-container');
+        if (langDropdownContainer) {
+            const langItems = document.querySelectorAll('#lang-dropdown-menu .dropdown-item');
+            const langSelectedText = document.getElementById('lang-selected-text');
+            langItems.forEach(i => {
+                if (i.getAttribute('data-lang') === savedLang) {
+                    i.classList.add('active');
+                    langSelectedText.textContent = i.textContent;
+                } else {
+                    i.classList.remove('active');
+                }
+            });
+            updateLanguage(savedLang);
+        }
+
         // Load Theme
         const savedTheme = localStorage.getItem('procv-theme') || 'sapphire';
         const savedTemplate = localStorage.getItem('procv-template') || 'modern';
@@ -1109,24 +1231,35 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add(`theme-${savedTheme}`);
         document.body.classList.add(`template-${savedTemplate}`);
         
-        // Mark correct theme selector button active
-        themeButtons.forEach(btn => {
-            if (btn.getAttribute('data-theme') === savedTheme) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
+        // Mark correct theme selector active
+        const themeDropdownMenu = document.getElementById('theme-dropdown-menu');
+        const themeSelectedIcon = document.getElementById('theme-selected-icon');
+        if (themeDropdownMenu && themeSelectedIcon) {
+            const themeItems = themeDropdownMenu.querySelectorAll('.dropdown-item');
+            themeItems.forEach(i => {
+                if (i.getAttribute('data-theme') === savedTheme) {
+                    i.classList.add('active');
+                    themeSelectedIcon.className = `theme-btn btn-${savedTheme} active`;
+                } else {
+                    i.classList.remove('active');
+                }
+            });
+        }
 
-        // Mark correct template selector button active
-        const templateButtons = document.querySelectorAll('.btn-template');
-        templateButtons.forEach(btn => {
-            if (btn.getAttribute('data-template') === savedTemplate) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
+        // Mark correct template selector active
+        const templateDropdownMenu = document.getElementById('template-dropdown-menu');
+        const templateSelectedText = document.getElementById('template-selected-text');
+        if (templateDropdownMenu && templateSelectedText) {
+            const templateItems = templateDropdownMenu.querySelectorAll('.dropdown-item');
+            templateItems.forEach(i => {
+                if (i.getAttribute('data-template') === savedTemplate) {
+                    i.classList.add('active');
+                    templateSelectedText.innerHTML = i.innerHTML;
+                } else {
+                    i.classList.remove('active');
+                }
+            });
+        }
 
         // Restore Section Order
         const savedOrderStr = localStorage.getItem('procv-section-order');
