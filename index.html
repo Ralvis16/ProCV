@@ -111,8 +111,8 @@
             <section class="editor-panel no-print">
                 <div class="editor-scroller">
                     <div class="editor-header-sticky">
-                        <h2><i data-lucide="edit-3"></i> Editor de Datos</h2>
-                        <span class="helper-text">Rellena los campos y mira la vista previa en tiempo real.</span>
+                        <h2><i data-lucide="edit-3"></i> <span data-i18n="editor_title">Editor de Datos</span></h2>
+                        <span class="helper-text" data-i18n="editor_subtitle">Rellena los campos y mira la vista previa en tiempo real.</span>
                     </div>
 
                     <!-- Accordion Form -->
@@ -121,48 +121,48 @@
                         <!-- 1. Datos Personales -->
                         <details class="accordion-item" data-fixed="true">
                             <summary class="accordion-trigger">
-                                <span><i data-lucide="user"></i> Información Personal</span>
+                                <span><i data-lucide="user"></i> <span data-i18n="sec_personal">Información Personal</span></span>
                                 <i data-lucide="chevron-down" class="chevron"></i>
                             </summary>
                             <div class="accordion-content grid-2">
                                 <div class="form-group" style="grid-column: 1 / -1;">
-                                    <label>Fotografía de Perfil (Opcional)</label>
+                                    <label data-i18n="lbl_photo">Fotografía de Perfil (Opcional)</label>
                                     <div style="display: flex; gap: 10px; align-items: center;">
                                         <input type="file" id="input-photo" accept="image/*" style="flex: 1;">
                                         <button id="btn-remove-photo" class="btn btn-secondary danger" style="padding: 0.5rem; display: none;" title="Eliminar Foto"><i data-lucide="trash-2"></i></button>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="input-fullname">Nombre Completo</label>
-                                    <input type="text" id="input-fullname" placeholder="Ej. Juan Pérez">
+                                    <label for="input-fullname" data-i18n="lbl_fullname">Nombre Completo</label>
+                                    <input type="text" id="input-fullname" data-i18n="ph_fullname" placeholder="Ej. Juan Pérez">
                                 </div>
                                 <div class="form-group">
-                                    <label for="input-title">Título Profesional / Especialidad</label>
-                                    <input type="text" id="input-title" placeholder="Ej. Especialista en Marketing, Gestor de Proyectos">
+                                    <label for="input-title" data-i18n="lbl_title">Título Profesional / Especialidad</label>
+                                    <input type="text" id="input-title" data-i18n="ph_title" placeholder="Ej. Especialista en Marketing, Gestor de Proyectos">
                                 </div>
                                 <div class="form-group">
-                                    <label for="input-email">Correo Electrónico</label>
-                                    <input type="email" id="input-email" placeholder="Ej. contacto@email.com">
+                                    <label for="input-email" data-i18n="lbl_email">Correo Electrónico</label>
+                                    <input type="email" id="input-email" data-i18n="ph_email" placeholder="Ej. contacto@email.com">
                                 </div>
                                 <div class="form-group">
-                                    <label for="input-phone">Teléfono</label>
-                                    <input type="tel" id="input-phone" placeholder="Ej. +34 600 000 000">
+                                    <label for="input-phone" data-i18n="lbl_phone">Teléfono</label>
+                                    <input type="tel" id="input-phone" data-i18n="ph_phone" placeholder="Ej. +34 600 000 000">
                                 </div>
                                 <div class="form-group">
-                                    <label for="input-link">Enlace Personal / Redes</label>
-                                    <input type="text" id="input-link" placeholder="Ej. linkedin.com/in/usuario">
+                                    <label for="input-link" data-i18n="lbl_link">Enlace Personal / Redes</label>
+                                    <input type="text" id="input-link" data-i18n="ph_link" placeholder="Ej. linkedin.com/in/usuario">
                                 </div>
                                 <div class="form-group">
-                                    <label for="input-linkedin">LinkedIn (URL o Usuario)</label>
-                                    <input type="text" id="input-linkedin" placeholder="Ej. linkedin.com/in/tu-usuario">
+                                    <label for="input-linkedin" data-i18n="lbl_linkedin">LinkedIn (URL o Usuario)</label>
+                                    <input type="text" id="input-linkedin" data-i18n="ph_linkedin" placeholder="Ej. linkedin.com/in/tu-usuario">
                                 </div>
                                 <div class="form-group">
-                                    <label for="input-website">Web Personal / Portafolio</label>
-                                    <input type="text" id="input-website" placeholder="Ej. tuweb.com">
+                                    <label for="input-website" data-i18n="lbl_website">Web Personal / Portafolio</label>
+                                    <input type="text" id="input-website" data-i18n="ph_website" placeholder="Ej. tuweb.com">
                                 </div>
                                 <div class="form-group">
-                                    <label for="input-location">Ubicación</label>
-                                    <input type="text" id="input-location" placeholder="Ej. Madrid, España">
+                                    <label for="input-location" data-i18n="lbl_location">Ubicación</label>
+                                    <input type="text" id="input-location" data-i18n="ph_location" placeholder="Ej. Madrid, España">
                                 </div>
                             </div>
                         </details>
@@ -172,18 +172,18 @@
                             <summary class="accordion-trigger">
                                 <span>
                                     <input type="checkbox" class="section-toggle" checked data-section="cv-section-summary" title="Activar/Desactivar sección">
-                                    <i data-lucide="file-text"></i> Perfil Profesional (Sobre mí)
+                                    <i data-lucide="file-text"></i> <span data-i18n="sec_profile">Perfil Profesional (Sobre mí)</span>
                                 </span>
                                 <i data-lucide="chevron-down" class="chevron"></i>
                             </summary>
                             <div class="accordion-content">
                                 <div class="form-group">
-                                    <label for="input-title-profile">Título de la sección</label>
-                                    <input type="text" id="input-title-profile" value="Perfil Profesional" placeholder="Ej. Sobre mí, Resumen...">
+                                    <label for="input-title-profile" data-i18n="lbl_sec_title">Título de la sección</label>
+                                    <input type="text" id="input-title-profile" data-i18n="ph_sec_profile" value="Perfil Profesional" placeholder="Ej. Sobre mí, Resumen...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="input-summary">Breve descripción de ti y tus objetivos</label>
-                                    <textarea id="input-summary" rows="4" placeholder="Ej. Profesional con experiencia en gestión de equipos y optimización de procesos..."></textarea>
+                                    <label for="input-summary" data-i18n="lbl_summary">Breve descripción de ti y tus objetivos</label>
+                                    <textarea id="input-summary" rows="4" data-i18n="ph_summary" placeholder="Ej. Profesional con experiencia en gestión de equipos y optimización de procesos..."></textarea>
                                 </div>
                             </div>
                         </details>
@@ -193,7 +193,7 @@
                             <summary class="accordion-trigger">
                                 <span>
                                     <input type="checkbox" class="section-toggle" checked data-section="cv-section-projects" title="Activar/Desactivar sección">
-                                    <i data-lucide="folder-git-2"></i> Proyectos
+                                    <i data-lucide="folder-git-2"></i> <span data-i18n="sec_projects">Proyectos</span>
                                 </span>
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <div class="section-controls" onclick="event.preventDefault();">
@@ -206,14 +206,14 @@
                             </summary>
                             <div class="accordion-content">
                                 <div class="form-group">
-                                    <label for="input-title-projects">Título de la sección</label>
-                                    <input type="text" id="input-title-projects" value="Proyectos" placeholder="Ej. Portafolio, Casos de Estudio...">
+                                    <label for="input-title-projects" data-i18n="lbl_sec_title">Título de la sección</label>
+                                    <input type="text" id="input-title-projects" data-i18n="ph_sec_projects" value="Proyectos" placeholder="Ej. Portafolio, Casos de Estudio...">
                                 </div>
                                 <div id="projects-list" class="dynamic-list">
                                     <!-- Dynamic items will be added here -->
                                 </div>
                                 <button type="button" id="btn-add-project" class="btn btn-outline btn-sm">
-                                    <i data-lucide="plus"></i> Añadir Proyecto
+                                    <i data-lucide="plus"></i> <span data-i18n="btn_add_project">Añadir Proyecto</span>
                                 </button>
                             </div>
                         </details>
@@ -223,7 +223,7 @@
                             <summary class="accordion-trigger">
                                 <span>
                                     <input type="checkbox" class="section-toggle" checked data-section="cv-section-experience" title="Activar/Desactivar sección">
-                                    <i data-lucide="briefcase"></i> Experiencia Laboral
+                                    <i data-lucide="briefcase"></i> <span data-i18n="sec_experience">Experiencia Laboral</span>
                                 </span>
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <div class="section-controls" onclick="event.preventDefault();">
@@ -236,14 +236,14 @@
                             </summary>
                             <div class="accordion-content">
                                 <div class="form-group">
-                                    <label for="input-title-experience">Título de la sección</label>
-                                    <input type="text" id="input-title-experience" value="Experiencia Laboral" placeholder="Ej. Experiencia, Historial Laboral...">
+                                    <label for="input-title-experience" data-i18n="lbl_sec_title">Título de la sección</label>
+                                    <input type="text" id="input-title-experience" data-i18n="ph_sec_experience" value="Experiencia Laboral" placeholder="Ej. Experiencia, Historial Laboral...">
                                 </div>
                                 <div id="experience-list" class="dynamic-list">
                                     <!-- Dynamic items will be added here -->
                                 </div>
                                 <button type="button" id="btn-add-experience" class="btn btn-outline btn-sm">
-                                    <i data-lucide="plus"></i> Añadir Experiencia
+                                    <i data-lucide="plus"></i> <span data-i18n="btn_add_experience">Añadir Experiencia</span>
                                 </button>
                             </div>
                         </details>
@@ -253,7 +253,7 @@
                             <summary class="accordion-trigger">
                                 <span>
                                     <input type="checkbox" class="section-toggle" checked data-section="cv-section-education" title="Activar/Desactivar sección">
-                                    <i data-lucide="graduation-cap"></i> Educación
+                                    <i data-lucide="graduation-cap"></i> <span data-i18n="sec_education">Educación</span>
                                 </span>
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <div class="section-controls" onclick="event.preventDefault();">
@@ -266,14 +266,14 @@
                             </summary>
                             <div class="accordion-content">
                                 <div class="form-group">
-                                    <label for="input-title-education">Título de la sección</label>
-                                    <input type="text" id="input-title-education" value="Formación" placeholder="Ej. Educación, Estudios...">
+                                    <label for="input-title-education" data-i18n="lbl_sec_title">Título de la sección</label>
+                                    <input type="text" id="input-title-education" data-i18n="ph_sec_education" value="Formación" placeholder="Ej. Educación, Estudios...">
                                 </div>
                                 <div id="education-list" class="dynamic-list">
                                     <!-- Dynamic items will be added here -->
                                 </div>
                                 <button type="button" id="btn-add-education" class="btn btn-outline btn-sm">
-                                    <i data-lucide="plus"></i> Añadir Educación
+                                    <i data-lucide="plus"></i> <span data-i18n="btn_add_education">Añadir Educación</span>
                                 </button>
                             </div>
                         </details>
@@ -283,7 +283,7 @@
                             <summary class="accordion-trigger">
                                 <span>
                                     <input type="checkbox" class="section-toggle" checked data-section="cv-section-softskills" title="Activar/Desactivar sección">
-                                    <i data-lucide="star"></i> Habilidades
+                                    <i data-lucide="star"></i> <span data-i18n="sec_softskills">Habilidades</span>
                                 </span>
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <div class="section-controls" onclick="event.preventDefault();">
@@ -296,12 +296,12 @@
                             </summary>
                             <div class="accordion-content">
                                 <div class="form-group">
-                                    <label for="input-title-softskills">Título de la sección</label>
-                                    <input type="text" id="input-title-softskills" value="Habilidades" placeholder="Ej. Habilidades Blandas, Competencias...">
+                                    <label for="input-title-softskills" data-i18n="lbl_sec_title">Título de la sección</label>
+                                    <input type="text" id="input-title-softskills" data-i18n="ph_sec_softskills" value="Habilidades" placeholder="Ej. Habilidades Blandas, Competencias...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="input-softskills-desc">Lista de Habilidades</label>
-                                    <textarea id="input-softskills-desc" class="bullet-textarea" rows="5" placeholder="Escribe tus habilidades aquí..."></textarea>
+                                    <label for="input-softskills-desc" data-i18n="lbl_softskills_list">Lista de Habilidades</label>
+                                    <textarea id="input-softskills-desc" class="bullet-textarea" rows="5" data-i18n="ph_softskills_list" placeholder="Escribe tus habilidades aquí..."></textarea>
                                 </div>
                             </div>
                         </details>
@@ -311,7 +311,7 @@
                             <summary class="accordion-trigger">
                                 <span>
                                     <input type="checkbox" class="section-toggle" checked data-section="cv-section-skills" title="Activar/Desactivar sección">
-                                    <i data-lucide="terminal"></i> Tecnología
+                                    <i data-lucide="terminal"></i> <span data-i18n="sec_tech">Tecnología</span>
                                 </span>
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <div class="section-controls" onclick="event.preventDefault();">
@@ -324,14 +324,14 @@
                             </summary>
                             <div class="accordion-content">
                                 <div class="form-group">
-                                    <label for="input-title-skills">Título de la sección</label>
-                                    <input type="text" id="input-title-skills" value="Tecnología" placeholder="Ej. Tecnologías, Herramientas...">
+                                    <label for="input-title-skills" data-i18n="lbl_sec_title">Título de la sección</label>
+                                    <input type="text" id="input-title-skills" data-i18n="ph_sec_tech" value="Tecnología" placeholder="Ej. Tecnologías, Herramientas...">
                                 </div>
                                 <div id="skills-list" class="dynamic-list">
                                     <!-- Dynamic skill items will go here -->
                                 </div>
                                 <button type="button" id="btn-add-skill" class="btn btn-outline btn-sm">
-                                    <i data-lucide="plus"></i> Añadir Tecnología
+                                    <i data-lucide="plus"></i> <span data-i18n="btn_add_skill">Añadir Tecnología</span>
                                 </button>
                             </div>
                         </details>
@@ -341,7 +341,7 @@
                             <summary class="accordion-trigger">
                                 <span>
                                     <input type="checkbox" class="section-toggle" checked data-section="cv-section-languages" title="Activar/Desactivar sección">
-                                    <i data-lucide="languages"></i> Idiomas
+                                    <i data-lucide="languages"></i> <span data-i18n="sec_languages">Idiomas</span>
                                 </span>
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <div class="section-controls" onclick="event.preventDefault();">
@@ -354,14 +354,14 @@
                             </summary>
                             <div class="accordion-content">
                                 <div class="form-group">
-                                    <label for="input-title-languages">Título de la sección</label>
-                                    <input type="text" id="input-title-languages" value="Idiomas" placeholder="Ej. Idiomas, Lenguas...">
+                                    <label for="input-title-languages" data-i18n="lbl_sec_title">Título de la sección</label>
+                                    <input type="text" id="input-title-languages" data-i18n="ph_sec_languages" value="Idiomas" placeholder="Ej. Idiomas, Lenguas...">
                                 </div>
                                 <div id="languages-list" class="dynamic-list">
                                     <!-- Dynamic language items will go here -->
                                 </div>
                                 <button type="button" id="btn-add-language" class="btn btn-outline btn-sm">
-                                    <i data-lucide="plus"></i> Añadir Idioma
+                                    <i data-lucide="plus"></i> <span data-i18n="btn_add_language">Añadir Idioma</span>
                                 </button>
                             </div>
                         </details>

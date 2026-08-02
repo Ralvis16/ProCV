@@ -15,7 +15,81 @@ document.addEventListener('DOMContentLoaded', () => {
             btn_export: "Exportar",
             btn_sample: "Ejemplo",
             btn_clear: "Limpiar",
-            btn_print: "Imprimir PDF"
+            btn_print: "Imprimir PDF",
+            editor_title: "Editor de Datos",
+            editor_subtitle: "Rellena los campos y mira la vista previa en tiempo real.",
+            sec_personal: "Información Personal",
+            sec_profile: "Perfil Profesional (Sobre mí)",
+            sec_projects: "Proyectos",
+            sec_experience: "Experiencia Laboral",
+            sec_education: "Educación",
+            sec_softskills: "Habilidades",
+            sec_tech: "Tecnología",
+            sec_languages: "Idiomas",
+            btn_add_project: "Añadir Proyecto",
+            btn_add_experience: "Añadir Experiencia",
+            btn_add_education: "Añadir Educación",
+            btn_add_skill: "Añadir Tecnología",
+            btn_add_language: "Añadir Idioma",
+            lbl_photo: "Fotografía de Perfil (Opcional)",
+            lbl_fullname: "Nombre Completo",
+            lbl_title: "Título Profesional / Especialidad",
+            lbl_email: "Correo Electrónico",
+            lbl_phone: "Teléfono",
+            lbl_link: "Enlace Personal / Redes",
+            lbl_linkedin: "LinkedIn (URL o Usuario)",
+            lbl_website: "Web Personal / Portafolio",
+            lbl_location: "Ubicación",
+            lbl_sec_title: "Título de la sección",
+            lbl_summary: "Breve descripción de ti y tus objetivos",
+            lbl_softskills_list: "Lista de Habilidades",
+            ph_fullname: "Ej. Juan Pérez",
+            ph_title: "Ej. Especialista en Marketing, Gestor de Proyectos",
+            ph_email: "Ej. contacto@email.com",
+            ph_phone: "Ej. +34 600 000 000",
+            ph_link: "Ej. linkedin.com/in/usuario",
+            ph_linkedin: "Ej. linkedin.com/in/tu-usuario",
+            ph_website: "Ej. tuweb.com",
+            ph_location: "Ej. Madrid, España",
+            ph_sec_profile: "Ej. Sobre mí, Resumen...",
+            ph_summary: "Ej. Profesional con experiencia en gestión de equipos y optimización de procesos...",
+            ph_sec_projects: "Ej. Portafolio, Casos de Estudio...",
+            ph_sec_experience: "Ej. Experiencia, Historial Laboral...",
+            ph_sec_education: "Ej. Educación, Estudios...",
+            ph_sec_softskills: "Ej. Habilidades Blandas, Competencias...",
+            ph_softskills_list: "Escribe tus habilidades aquí...",
+            ph_sec_tech: "Ej. Tecnologías, Herramientas...",
+            ph_sec_languages: "Ej. Idiomas, Lenguas...",
+            lbl_exp_role: "Puesto / Cargo",
+            ph_exp_role: "Ej. Desarrollador Web Prácticas",
+            lbl_exp_company: "Empresa",
+            ph_exp_company: "Ej. Innova Soft S.L.",
+            lbl_exp_dates: "Periodo (Fechas)",
+            ph_exp_dates: "Ej. Ene 2025 - Mar 2026",
+            lbl_exp_desc: "Descripción / Logros",
+            ph_exp_desc: "Ej. Desarrollo de APIs en Java, diseño de vistas responsivas...",
+            lbl_proj_name: "Nombre del Proyecto",
+            ph_proj_name: "Ej. E-commerce App",
+            lbl_proj_tech: "Tecnologías (Separadas por comas)",
+            ph_proj_tech: "Ej. Flutter, Firebase, Dart",
+            lbl_proj_desc: "Descripción",
+            ph_proj_desc: "Ej. Aplicación móvil de gestión logística con base de datos local y offline...",
+            lbl_edu_degree: "Titulación / Grado / Certificación",
+            ph_edu_degree: "Ej. C.F.G.S. Desarrollo de Aplicaciones Web",
+            lbl_edu_school: "Centro de Estudios / Institución",
+            ph_edu_school: "Ej. I.E.S. Tecnológico",
+            lbl_edu_dates: "Periodo (Fechas)",
+            ph_edu_dates: "Ej. 2024 - 2026",
+            lbl_skill_name: "Habilidad / Tecnología",
+            ph_skill_name: "Ej. Liderazgo, React, Excel",
+            lbl_lang_name: "Idioma",
+            ph_lang_name: "Ej. Inglés",
+            lbl_lang_level: "Nivel",
+            opt_basic: "Básico",
+            opt_intermediate: "Intermedio",
+            opt_advanced: "Avanzado",
+            opt_bilingual: "Bilingüe",
+            opt_native: "Nativo"
         },
         en: {
             theme_label: "Theme:",
@@ -25,7 +99,81 @@ document.addEventListener('DOMContentLoaded', () => {
             btn_export: "Save Data",
             btn_sample: "Sample",
             btn_clear: "Clear All",
-            btn_print: "Print PDF"
+            btn_print: "Print PDF",
+            editor_title: "Data Editor",
+            editor_subtitle: "Fill in the fields and watch the real-time preview.",
+            sec_personal: "Personal Information",
+            sec_profile: "Professional Profile (About me)",
+            sec_projects: "Projects",
+            sec_experience: "Work Experience",
+            sec_education: "Education",
+            sec_softskills: "Soft Skills",
+            sec_tech: "Technology",
+            sec_languages: "Languages",
+            btn_add_project: "Add Project",
+            btn_add_experience: "Add Experience",
+            btn_add_education: "Add Education",
+            btn_add_skill: "Add Technology",
+            btn_add_language: "Add Language",
+            lbl_photo: "Profile Photo (Optional)",
+            lbl_fullname: "Full Name",
+            lbl_title: "Professional Title / Specialty",
+            lbl_email: "Email Address",
+            lbl_phone: "Phone Number",
+            lbl_link: "Personal Link / Social",
+            lbl_linkedin: "LinkedIn (URL or Username)",
+            lbl_website: "Personal Website / Portfolio",
+            lbl_location: "Location",
+            lbl_sec_title: "Section Title",
+            lbl_summary: "Brief description of yourself and your goals",
+            lbl_softskills_list: "List of Skills",
+            ph_fullname: "e.g. John Doe",
+            ph_title: "e.g. Marketing Specialist, Project Manager",
+            ph_email: "e.g. contact@email.com",
+            ph_phone: "e.g. +1 555 000 000",
+            ph_link: "e.g. linkedin.com/in/username",
+            ph_linkedin: "e.g. linkedin.com/in/your-username",
+            ph_website: "e.g. yourwebsite.com",
+            ph_location: "e.g. New York, USA",
+            ph_sec_profile: "e.g. About me, Summary...",
+            ph_summary: "e.g. Professional with experience in team management and process optimization...",
+            ph_sec_projects: "e.g. Portfolio, Case Studies...",
+            ph_sec_experience: "e.g. Experience, Work History...",
+            ph_sec_education: "e.g. Education, Studies...",
+            ph_sec_softskills: "e.g. Soft Skills, Competencies...",
+            ph_softskills_list: "Write your skills here...",
+            ph_sec_tech: "e.g. Technologies, Tools...",
+            ph_sec_languages: "e.g. Languages...",
+            lbl_exp_role: "Role / Position",
+            ph_exp_role: "e.g. Web Developer Intern",
+            lbl_exp_company: "Company",
+            ph_exp_company: "e.g. Innova Soft Inc.",
+            lbl_exp_dates: "Period (Dates)",
+            ph_exp_dates: "e.g. Jan 2025 - Mar 2026",
+            lbl_exp_desc: "Description / Achievements",
+            ph_exp_desc: "e.g. Developed Java APIs, designed responsive views...",
+            lbl_proj_name: "Project Name",
+            ph_proj_name: "e.g. E-commerce App",
+            lbl_proj_tech: "Technologies (Comma separated)",
+            ph_proj_tech: "e.g. Flutter, Firebase, Dart",
+            lbl_proj_desc: "Description",
+            ph_proj_desc: "e.g. Mobile logistics app with local offline database...",
+            lbl_edu_degree: "Degree / Certification",
+            ph_edu_degree: "e.g. B.S. in Computer Science",
+            lbl_edu_school: "School / Institution",
+            ph_edu_school: "e.g. Technology Institute",
+            lbl_edu_dates: "Period (Dates)",
+            ph_edu_dates: "e.g. 2024 - 2026",
+            lbl_skill_name: "Skill / Technology",
+            ph_skill_name: "e.g. Leadership, React, Excel",
+            lbl_lang_name: "Language",
+            ph_lang_name: "e.g. English",
+            lbl_lang_level: "Level",
+            opt_basic: "Basic",
+            opt_intermediate: "Intermediate",
+            opt_advanced: "Advanced",
+            opt_bilingual: "Bilingual",
+            opt_native: "Native"
         }
     };
 
@@ -155,23 +303,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = `exp-${expIdCounter++}`;
         const innerHtml = `
                 <div class="form-group grid-2">
-                    <label>Puesto / Cargo</label>
-                    <input type="text" class="exp-role" value="${data.role || ''}" placeholder="Ej. Desarrollador Web Prácticas">
+                    <label data-i18n="lbl_exp_role">Puesto / Cargo</label>
+                    <input type="text" class="exp-role" data-i18n="ph_exp_role" value="${data.role || ''}" placeholder="Ej. Desarrollador Web Prácticas">
                 </div>
                 <div class="form-group">
-                    <label>Empresa</label>
-                    <input type="text" class="exp-company" value="${data.company || ''}" placeholder="Ej. Innova Soft S.L.">
+                    <label data-i18n="lbl_exp_company">Empresa</label>
+                    <input type="text" class="exp-company" data-i18n="ph_exp_company" value="${data.company || ''}" placeholder="Ej. Innova Soft S.L.">
                 </div>
                 <div class="form-group">
-                    <label>Periodo (Fechas)</label>
-                    <input type="text" class="exp-dates" value="${data.dates || ''}" placeholder="Ej. Ene 2025 - Mar 2026">
+                    <label data-i18n="lbl_exp_dates">Periodo (Fechas)</label>
+                    <input type="text" class="exp-dates" data-i18n="ph_exp_dates" value="${data.dates || ''}" placeholder="Ej. Ene 2025 - Mar 2026">
                 </div>
                 <div class="form-group">
-                    <label>Descripción / Logros</label>
-                    <textarea class="exp-desc bullet-textarea" rows="3" placeholder="Ej. Desarrollo de APIs en Java, diseño de vistas responsivas...">${data.desc || ''}</textarea>
+                    <label data-i18n="lbl_exp_desc">Descripción / Logros</label>
+                    <textarea class="exp-desc bullet-textarea" data-i18n="ph_exp_desc" rows="3" placeholder="Ej. Desarrollo de APIs en Java, diseño de vistas responsivas...">${data.desc || ''}</textarea>
                 </div>
         `;
         appendDynamicField(experienceList, id, innerHtml);
+        updateLanguage(localStorage.getItem('procv_lang') || 'es');
     }
 
     // Add Project Form Group
@@ -179,19 +328,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = `proj-${projIdCounter++}`;
         const innerHtml = `
                 <div class="form-group">
-                    <label>Nombre del Proyecto</label>
-                    <input type="text" class="proj-title" value="${data.title || ''}" placeholder="Ej. E-commerce App">
+                    <label data-i18n="lbl_proj_name">Nombre del Proyecto</label>
+                    <input type="text" class="proj-title" data-i18n="ph_proj_name" value="${data.title || ''}" placeholder="Ej. E-commerce App">
                 </div>
                 <div class="form-group">
-                    <label>Tecnologías (Separadas por comas)</label>
-                    <input type="text" class="proj-tech" value="${data.tech || ''}" placeholder="Ej. Flutter, Firebase, Dart">
+                    <label data-i18n="lbl_proj_tech">Tecnologías (Separadas por comas)</label>
+                    <input type="text" class="proj-tech" data-i18n="ph_proj_tech" value="${data.tech || ''}" placeholder="Ej. Flutter, Firebase, Dart">
                 </div>
                 <div class="form-group">
-                    <label>Descripción</label>
-                    <textarea class="proj-desc" rows="2" placeholder="Ej. Aplicación móvil de gestión logística con base de datos local y offline...">${data.desc || ''}</textarea>
+                    <label data-i18n="lbl_proj_desc">Descripción</label>
+                    <textarea class="proj-desc" rows="2" data-i18n="ph_proj_desc" placeholder="Ej. Aplicación móvil de gestión logística con base de datos local y offline...">${data.desc || ''}</textarea>
                 </div>
         `;
         appendDynamicField(projectsList, id, innerHtml);
+        updateLanguage(localStorage.getItem('procv_lang') || 'es');
     }
 
     // Add Education Form Group
@@ -199,19 +349,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = `edu-${eduIdCounter++}`;
         const innerHtml = `
                 <div class="form-group">
-                    <label>Titulación / Grado / Certificación</label>
-                    <input type="text" class="edu-degree" value="${data.degree || ''}" placeholder="Ej. C.F.G.S. Desarrollo de Aplicaciones Web">
+                    <label data-i18n="lbl_edu_degree">Titulación / Grado / Certificación</label>
+                    <input type="text" class="edu-degree" data-i18n="ph_edu_degree" value="${data.degree || ''}" placeholder="Ej. C.F.G.S. Desarrollo de Aplicaciones Web">
                 </div>
                 <div class="form-group">
-                    <label>Centro de Estudios / Institución</label>
-                    <input type="text" class="edu-school" value="${data.school || ''}" placeholder="Ej. I.E.S. Tecnológico">
+                    <label data-i18n="lbl_edu_school">Centro de Estudios / Institución</label>
+                    <input type="text" class="edu-school" data-i18n="ph_edu_school" value="${data.school || ''}" placeholder="Ej. I.E.S. Tecnológico">
                 </div>
                 <div class="form-group">
-                    <label>Periodo (Fechas)</label>
-                    <input type="text" class="edu-dates" value="${data.dates || ''}" placeholder="Ej. 2024 - 2026">
+                    <label data-i18n="lbl_edu_dates">Periodo (Fechas)</label>
+                    <input type="text" class="edu-dates" data-i18n="ph_edu_dates" value="${data.dates || ''}" placeholder="Ej. 2024 - 2026">
                 </div>
         `;
         appendDynamicField(educationList, id, innerHtml);
+        updateLanguage(localStorage.getItem('procv_lang') || 'es');
     }
 
     // Add Skill Form Group
@@ -219,12 +370,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = `skill-${skillIdCounter++}`;
         const innerHtml = `
                 <div class="form-group">
-                    <label>Habilidad / Tecnología</label>
-                    <input type="text" class="skill-name" value="${name}" placeholder="Ej. Liderazgo, React, Excel">
+                    <label data-i18n="lbl_skill_name">Habilidad / Tecnología</label>
+                    <input type="text" class="skill-name" data-i18n="ph_skill_name" value="${name}" placeholder="Ej. Liderazgo, React, Excel">
                 </div>
                 <input type="hidden" class="skill-level" value="${level}">
         `;
         appendDynamicField(skillsList, id, innerHtml);
+        updateLanguage(localStorage.getItem('procv_lang') || 'es');
     }
 
     // Add Language Form Group
@@ -233,22 +385,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const innerHtml = `
                 <div class="form-group grid-2">
                     <div>
-                        <label>Idioma</label>
-                        <input type="text" class="lang-name" value="${name}" placeholder="Ej. Inglés">
+                        <label data-i18n="lbl_lang_name">Idioma</label>
+                        <input type="text" class="lang-name" data-i18n="ph_lang_name" value="${name}" placeholder="Ej. Inglés">
                     </div>
                     <div>
-                        <label>Nivel</label>
+                        <label data-i18n="lbl_lang_level">Nivel</label>
                         <select class="lang-level">
-                            <option value="Básico" ${level === 'Básico' ? 'selected' : ''}>Básico</option>
-                            <option value="Intermedio" ${level === 'Intermedio' ? 'selected' : ''}>Intermedio</option>
-                            <option value="Avanzado" ${level === 'Avanzado' ? 'selected' : ''}>Avanzado</option>
-                            <option value="Bilingüe" ${level === 'Bilingüe' ? 'selected' : ''}>Bilingüe</option>
-                            <option value="Nativo" ${level === 'Nativo' ? 'selected' : ''}>Nativo</option>
+                            <option value="Básico" data-i18n="opt_basic" ${level === 'Básico' ? 'selected' : ''}>Básico</option>
+                            <option value="Intermedio" data-i18n="opt_intermediate" ${level === 'Intermedio' ? 'selected' : ''}>Intermedio</option>
+                            <option value="Avanzado" data-i18n="opt_advanced" ${level === 'Avanzado' ? 'selected' : ''}>Avanzado</option>
+                            <option value="Bilingüe" data-i18n="opt_bilingual" ${level === 'Bilingüe' ? 'selected' : ''}>Bilingüe</option>
+                            <option value="Nativo" data-i18n="opt_native" ${level === 'Nativo' ? 'selected' : ''}>Nativo</option>
                         </select>
                     </div>
                 </div>
         `;
         appendDynamicField(languagesList, id, innerHtml);
+        updateLanguage(localStorage.getItem('procv_lang') || 'es');
     }
 
     // Setup input and delete event listeners for a dynamic item
