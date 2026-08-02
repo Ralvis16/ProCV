@@ -15,8 +15,9 @@ Una aplicación web moderna, premium e interactiva diseñada para crear currícu
 *   **Secciones Flexibles y Visibilidad Dinámica:** Activa o desactiva secciones enteras (Sobre mí, Experiencia, Proyectos, Educación, Habilidades o Idiomas) usando cómodos *checkboxes* integrados en las cabeceras del editor.
 *   **Optimización de Impresión A4:** Diseñado con márgenes nativos CSS (`@page { margin: 12mm 14mm; }`) y división de bloques inteligente (`break-inside: avoid`), asegurando que la exportación a PDF sea perfecta y aproveche al máximo el espacio de la hoja sin dejar huecos en blanco.
 *   **Confirmaciones Seguras y UX Fluida:** El botón de limpiar datos utiliza un modal de confirmación HTML/CSS personalizado, previniendo congelamientos por bloqueadores de pop-ups en previsualizadores integrados.
+*   **Soporte Bilingüe (Internacionalización):** Interfaz completa y dinámica en Español e Inglés, traduciendo datos de ejemplo, botones, vistas previas vacías y advertencias legales en tiempo real.
 *   **Persistencia Local Automática:** Guarda el progreso automáticamente en el `localStorage` del navegador para que no pierdas nada al recargar o cerrar la pestaña.
-*   **Carga de Ejemplo:** Incluye un botón para cargar datos de prueba reales para un perfil profesional general, facilitando la visualización inmediata de cómo quedará el currículum.
+*   **Carga de Ejemplo:** Al ingresar por primera vez, se cargarán datos de ejemplo automáticamente (en el idioma seleccionado) para facilitar la visualización inmediata de cómo quedará el currículum. También incluye un botón para recargarlos manualmente.
 
 ---
 

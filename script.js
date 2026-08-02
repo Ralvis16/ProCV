@@ -151,7 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
             def_education: "Formación",
             def_skills: "Tecnología",
             def_softskills: "Habilidades",
-            def_languages: "Idiomas"
+            def_languages: "Idiomas",
+            modal_confirm_title: "¿Confirmar acción?",
+            modal_confirm_body: "¿Estás seguro de que deseas limpiar todos los campos del currículum? Se perderá todo el progreso actual y guardado.",
+            modal_btn_cancel: "Cancelar",
+            modal_btn_confirm: "Sí, limpiar todo"
         },
         en: {
             theme_label: "Theme:",
@@ -297,7 +301,11 @@ document.addEventListener('DOMContentLoaded', () => {
             def_education: "Education",
             def_skills: "Technology",
             def_softskills: "Skills",
-            def_languages: "Languages"
+            def_languages: "Languages",
+            modal_confirm_title: "Confirm action?",
+            modal_confirm_body: "Are you sure you want to clear all resume fields? All current and saved progress will be lost.",
+            modal_btn_cancel: "Cancel",
+            modal_btn_confirm: "Yes, clear all"
         }
     };
 
@@ -674,15 +682,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTextAndContactPreview() {
+        const currentLang = localStorage.getItem('procv_lang') || 'es';
+        const t = translations[currentLang] || translations['es'];
+
         // 1. Personal Info
         let nameToDisplay = inputFullname.value.trim();
         const nameWords = nameToDisplay.split(/\s+/);
         if (nameWords.length > 2) {
             nameToDisplay = nameWords[0] + ' ' + nameWords[1] + '\n' + nameWords.slice(2).join(' ');
         }
-        setText('preview-fullname', nameToDisplay, 'Nombre Completo');
-        setText('preview-title', inputTitle.value, 'Título Profesional / Especialidad');
-        setText('preview-summary', inputSummary.value, 'Breve descripción de ti y tus objetivos en tecnología...');
+        setText('preview-fullname', nameToDisplay, t.lbl_fullname);
+        setText('preview-title', inputTitle.value, t.lbl_title);
+        setText('preview-summary', inputSummary.value, t.lbl_summary + '...');
 
         // 2. Contacts
         setContact('preview-email', 'cv-contact-email-container', inputEmail.value, 'email');
@@ -694,11 +705,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function buildExperienceHtml(role, company, dates, desc) {
+        const currentLang = localStorage.getItem('procv_lang') || 'es';
+        const t = translations[currentLang] || translations['es'];
         return `
             <div class="cv-item-block">
                 <div class="cv-item-header">
-                    <div class="cv-item-title">${role || 'Puesto'}</div>
-                    <div class="cv-item-meta">${company || 'Empresa'}</div>
+                    <div class="cv-item-title">${role || t.lbl_exp_role}</div>
+                    <div class="cv-item-meta">${company || t.lbl_exp_company}</div>
                 </div>
                 <div class="cv-item-dates">${dates || ''}</div>
                 ${desc ? `<div class="cv-item-desc">${desc.replace(/\n/g, '<br>')}</div>` : ''}
@@ -725,10 +738,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function buildEducationHtml(degree, school, dates) {
+        const currentLang = localStorage.getItem('procv_lang') || 'es';
+        const t = translations[currentLang] || translations['es'];
         return `
             <div class="cv-item-block">
-                <div class="cv-item-title">${degree || 'Título'}</div>
-                <div class="cv-item-meta">${school || 'Centro'}</div>
+                <div class="cv-item-title">${degree || t.lbl_edu_degree}</div>
+                <div class="cv-item-meta">${school || t.lbl_edu_school}</div>
                 <div class="cv-item-dates">${dates || ''}</div>
             </div>
         `;
@@ -1448,14 +1463,17 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
         textInputs.forEach(input => input.value = '');
 
-        inputTitleProfile.value = 'Perfil Profesional';
-        inputTitleExperience.value = 'Experiencia Laboral';
-        inputTitleProjects.value = 'Proyectos';
-        inputTitleEducation.value = 'Formación';
-        inputTitleSkills.value = 'Tecnología';
-        inputTitleSoftSkills.value = 'Habilidades';
+        const currentLang = localStorage.getItem('procv_lang') || 'es';
+        const t = translations[currentLang] || translations['es'];
+
+        inputTitleProfile.value = t.def_profile;
+        inputTitleExperience.value = t.def_experience;
+        inputTitleProjects.value = t.def_projects;
+        inputTitleEducation.value = t.def_education;
+        inputTitleSkills.value = t.def_skills;
+        inputTitleSoftSkills.value = t.def_softskills;
         inputSoftSkillsDesc.value = '';
-        inputTitleLanguages.value = 'Idiomas';
+        inputTitleLanguages.value = t.def_languages;
 
         // Clear Dynamic Lists
         experienceList.innerHTML = '';
@@ -1742,6 +1760,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
+            // Check if state is essentially empty
+            const isEmpty = !state.fullname && 
+                            (!state.experience || state.experience.length === 0) &&
+                            (!state.education || state.education.length === 0);
+            if (isEmpty) {
+                btnSampleData.click();
+                return;
+            }
+            
             // Populate text inputs
             inputFullname.value = state.fullname || '';
             inputTitle.value = state.title || '';
@@ -1753,23 +1780,26 @@ document.addEventListener('DOMContentLoaded', () => {
             inputLinkedin.value = state.linkedin || '';
             inputSummary.value = state.summary || '';
 
+            const currentLang = localStorage.getItem('procv_lang') || 'es';
+            const t = translations[currentLang] || translations['es'];
+
             if (state.titles) {
-                inputTitleProfile.value = state.titles.profile || 'Perfil Profesional';
-                inputTitleExperience.value = state.titles.experience || 'Experiencia Laboral';
-                inputTitleProjects.value = state.titles.projects || 'Proyectos';
-                inputTitleEducation.value = state.titles.education || 'Formación';
-                inputTitleSkills.value = state.titles.skills || 'Tecnología';
-                inputTitleSoftSkills.value = state.titles.softskills || 'Habilidades';
-                inputTitleLanguages.value = state.titles.languages || 'Idiomas';
+                inputTitleProfile.value = state.titles.profile || t.def_profile;
+                inputTitleExperience.value = state.titles.experience || t.def_experience;
+                inputTitleProjects.value = state.titles.projects || t.def_projects;
+                inputTitleEducation.value = state.titles.education || t.def_education;
+                inputTitleSkills.value = state.titles.skills || t.def_skills;
+                inputTitleSoftSkills.value = state.titles.softskills || t.def_softskills;
+                inputTitleLanguages.value = state.titles.languages || t.def_languages;
             } else {
-                inputTitleProfile.value = 'Perfil Profesional';
-                inputTitleExperience.value = 'Experiencia Laboral';
-                inputTitleProjects.value = 'Proyectos';
-                inputTitleEducation.value = 'Formación';
-                inputTitleSkills.value = 'Tecnología';
-                inputTitleSoftSkills.value = 'Habilidades';
+                inputTitleProfile.value = t.def_profile;
+                inputTitleExperience.value = t.def_experience;
+                inputTitleProjects.value = t.def_projects;
+                inputTitleEducation.value = t.def_education;
+                inputTitleSkills.value = t.def_skills;
+                inputTitleSoftSkills.value = t.def_softskills;
                 inputSoftSkillsDesc.value = '';
-                inputTitleLanguages.value = 'Idiomas';
+                inputTitleLanguages.value = t.def_languages;
             }
             inputSoftSkillsDesc.value = state.softskillsDesc || '';
             currentPhoto = state.photo || null;
