@@ -89,7 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
             opt_intermediate: "Intermedio",
             opt_advanced: "Avanzado",
             opt_bilingual: "Bilingüe",
-            opt_native: "Nativo"
+            opt_native: "Nativo",
+            theme_sapphire: "Zafiro",
+            theme_cyberpunk: "Ciberpunk",
+            theme_emerald: "Esmeralda",
+            theme_nordic: "Nórdico",
+            tmpl_modern: "Moderno",
+            tmpl_minimal: "Minimalista",
+            tmpl_classic: "Clásico"
         },
         en: {
             theme_label: "Theme:",
@@ -173,7 +180,14 @@ document.addEventListener('DOMContentLoaded', () => {
             opt_intermediate: "Intermediate",
             opt_advanced: "Advanced",
             opt_bilingual: "Bilingual",
-            opt_native: "Native"
+            opt_native: "Native",
+            theme_sapphire: "Sapphire",
+            theme_cyberpunk: "Cyberpunk",
+            theme_emerald: "Emerald",
+            theme_nordic: "Nordic",
+            tmpl_modern: "Modern",
+            tmpl_minimal: "Minimal",
+            tmpl_classic: "Classic"
         }
     };
 
