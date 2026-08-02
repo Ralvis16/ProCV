@@ -851,8 +851,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 templateItems.forEach(i => i.classList.remove('active'));
                 item.classList.add('active');
                 
-                // Update header text and icon
-                templateSelectedText.innerHTML = item.innerHTML;
+                // Update header icon
+                const iconElement = item.querySelector('i');
+                if (iconElement) {
+                    templateSelectedText.innerHTML = iconElement.outerHTML;
+                    // Re-initialize lucide icons for the new injected HTML
+                    if (window.lucide) {
+                        lucide.createIcons({
+                            nameAttr: 'data-lucide',
+                            root: templateSelectedText
+                        });
+                    }
+                }
                 
                 // Close dropdown
                 item.closest('.custom-dropdown').classList.remove('open');
@@ -1407,7 +1417,16 @@ document.addEventListener('DOMContentLoaded', () => {
             templateItems.forEach(i => {
                 if (i.getAttribute('data-template') === savedTemplate) {
                     i.classList.add('active');
-                    templateSelectedText.innerHTML = i.innerHTML;
+                    const iconElement = i.querySelector('i');
+                    if (iconElement) {
+                        templateSelectedText.innerHTML = iconElement.outerHTML;
+                        if (window.lucide) {
+                            lucide.createIcons({
+                                nameAttr: 'data-lucide',
+                                root: templateSelectedText
+                            });
+                        }
+                    }
                 } else {
                     i.classList.remove('active');
                 }
