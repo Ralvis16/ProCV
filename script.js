@@ -312,6 +312,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateLanguage(lang) {
         const t = translations[lang];
         if (!t) return;
+        
+        // Update HTML lang attribute for SEO
+        document.documentElement.lang = lang;
+
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (t[key]) {
