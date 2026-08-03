@@ -1,5 +1,5 @@
 // ----------------------------------------------------
-// ProCV - JavaScript Logic for Live Preview and PDF Export
+// ProCVX - JavaScript Logic for Live Preview and PDF Export
 // ----------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -502,7 +502,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
         `;
         appendDynamicField(experienceList, id, innerHtml);
-        updateLanguage(localStorage.getItem('procv_lang') || 'es');
+        updateLanguage(localStorage.getItem('procvx_lang') || 'es');
     }
 
     // Add Project Form Group
@@ -523,7 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
         `;
         appendDynamicField(projectsList, id, innerHtml);
-        updateLanguage(localStorage.getItem('procv_lang') || 'es');
+        updateLanguage(localStorage.getItem('procvx_lang') || 'es');
     }
 
     // Add Education Form Group
@@ -544,7 +544,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
         `;
         appendDynamicField(educationList, id, innerHtml);
-        updateLanguage(localStorage.getItem('procv_lang') || 'es');
+        updateLanguage(localStorage.getItem('procvx_lang') || 'es');
     }
 
     // Add Skill Form Group
@@ -558,7 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <input type="hidden" class="skill-level" value="${level}">
         `;
         appendDynamicField(skillsList, id, innerHtml);
-        updateLanguage(localStorage.getItem('procv_lang') || 'es');
+        updateLanguage(localStorage.getItem('procvx_lang') || 'es');
     }
 
     // Add Language Form Group
@@ -583,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
         `;
         appendDynamicField(languagesList, id, innerHtml);
-        updateLanguage(localStorage.getItem('procv_lang') || 'es');
+        updateLanguage(localStorage.getItem('procvx_lang') || 'es');
     }
 
     // Setup input and delete event listeners for a dynamic item
@@ -686,7 +686,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTextAndContactPreview() {
-        const currentLang = localStorage.getItem('procv_lang') || 'es';
+        const currentLang = localStorage.getItem('procvx_lang') || 'es';
         const t = translations[currentLang] || translations['es'];
 
         // 1. Personal Info
@@ -709,7 +709,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function buildExperienceHtml(role, company, dates, desc) {
-        const currentLang = localStorage.getItem('procv_lang') || 'es';
+        const currentLang = localStorage.getItem('procvx_lang') || 'es';
         const t = translations[currentLang] || translations['es'];
         return `
             <div class="cv-item-block">
@@ -742,7 +742,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function buildEducationHtml(degree, school, dates) {
-        const currentLang = localStorage.getItem('procv_lang') || 'es';
+        const currentLang = localStorage.getItem('procvx_lang') || 'es';
         const t = translations[currentLang] || translations['es'];
         return `
             <div class="cv-item-block">
@@ -1083,7 +1083,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.closest('.custom-dropdown').classList.remove('open');
                 
                 // Save and apply lang
-                localStorage.setItem('procv_lang', lang);
+                localStorage.setItem('procvx_lang', lang);
                 updateLanguage(lang);
             });
         });
@@ -1198,7 +1198,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         updatePreviewSectionOrder();
-        localStorage.removeItem('procv-section-order');
+        localStorage.removeItem('procvx-section-order');
     }
 
     // ----------------------------------------------------
@@ -1217,7 +1217,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         resetSectionOrderToDefault();
 
-        const currentLang = localStorage.getItem('procv_lang') || 'es';
+        const currentLang = localStorage.getItem('procvx_lang') || 'es';
         if (currentLang === 'en') {
             inputFullname.value = 'Alex Torto Ramos';
             inputTitle.value = 'Project Manager // Strategic Consultant';
@@ -1467,7 +1467,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
         textInputs.forEach(input => input.value = '');
 
-        const currentLang = localStorage.getItem('procv_lang') || 'es';
+        const currentLang = localStorage.getItem('procvx_lang') || 'es';
         const t = translations[currentLang] || translations['es'];
 
         inputTitleProfile.value = t.def_profile;
@@ -1502,7 +1502,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(btnExportJson) {
         btnExportJson.addEventListener('click', () => {
             saveToLocalStorage(); // Ensure latest changes are saved
-            const savedStateString = localStorage.getItem('procv-state');
+            const savedStateString = localStorage.getItem('procvx-state');
             if (!savedStateString) return;
             const blob = new Blob([savedStateString], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
@@ -1510,7 +1510,7 @@ document.addEventListener('DOMContentLoaded', () => {
             a.href = url;
             let baseName = inputFullname.value.trim().replace(/\s+/g, '_');
             if (!baseName) baseName = 'Mi_Curriculum';
-            a.download = `${baseName}_ProCV.json`;
+            a.download = `${baseName}_ProCVX.json`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -1530,7 +1530,7 @@ document.addEventListener('DOMContentLoaded', () => {
             reader.onload = (e) => {
                 try {
                     const importedState = JSON.parse(e.target.result);
-                    localStorage.setItem('procv-state', JSON.stringify(importedState));
+                    localStorage.setItem('procvx-state', JSON.stringify(importedState));
                     loadFromLocalStorage();
                     alert('Currículum cargado correctamente.');
                 } catch (err) {
@@ -1552,7 +1552,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Save the original document title
         const originalTitle = document.title;
         // Temporarily change title so the exported PDF gets this default name
-        document.title = `${baseName}_ProCV`;
+        document.title = `${baseName}_ProCVX`;
         
         // Trigger native print dialog
         window.print();
@@ -1642,28 +1642,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Note: we can't save theme and template inside cvData right now because import/export 
         // doesn't usually override layout, but let's save them to localStorage independently.
-        localStorage.setItem('procv-state', JSON.stringify(cvData));
+        localStorage.setItem('procvx-state', JSON.stringify(cvData));
         
         // Save Section Order
         const orderedIds = Array.from(document.querySelectorAll('.section-toggle'))
             .map(toggle => toggle.getAttribute('data-section'))
             .filter(id => id);
-        localStorage.setItem('procv-section-order', JSON.stringify(orderedIds));
+        localStorage.setItem('procvx-section-order', JSON.stringify(orderedIds));
 
         const activeThemeItem = document.querySelector('#theme-dropdown-menu .dropdown-item.active');
         if (activeThemeItem) {
-            localStorage.setItem('procv-theme', activeThemeItem.getAttribute('data-theme'));
+            localStorage.setItem('procvx-theme', activeThemeItem.getAttribute('data-theme'));
         }
         
         const activeTemplateItem = document.querySelector('#template-dropdown-menu .dropdown-item.active');
         if (activeTemplateItem) {
-            localStorage.setItem('procv-template', activeTemplateItem.getAttribute('data-template'));
+            localStorage.setItem('procvx-template', activeTemplateItem.getAttribute('data-template'));
         }
     }
 
     function loadFromLocalStorage() {
         // Load Language
-        const savedLang = localStorage.getItem('procv_lang') || 'es';
+        const savedLang = localStorage.getItem('procvx_lang') || 'es';
         const langDropdownContainer = document.getElementById('lang-dropdown-container');
         if (langDropdownContainer) {
             const langItems = document.querySelectorAll('#lang-dropdown-menu .dropdown-item');
@@ -1680,8 +1680,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Load Theme
-        const savedTheme = localStorage.getItem('procv-theme') || 'sapphire';
-        const savedTemplate = localStorage.getItem('procv-template') || 'modern';
+        const savedTheme = localStorage.getItem('procvx-theme') || 'sapphire';
+        const savedTemplate = localStorage.getItem('procvx-template') || 'modern';
         
         document.body.className = '';
         document.body.classList.add(`theme-${savedTheme}`);
@@ -1727,7 +1727,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Restore Section Order
-        const savedOrderStr = localStorage.getItem('procv-section-order');
+        const savedOrderStr = localStorage.getItem('procvx-section-order');
         if (savedOrderStr) {
             try {
                 const savedOrder = JSON.parse(savedOrderStr);
@@ -1750,7 +1750,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Load State
-        const savedStateString = localStorage.getItem('procv-state');
+        const savedStateString = localStorage.getItem('procvx-state');
         if (!savedStateString) {
             // Load Sample Data on first visit to impress the user immediately!
             btnSampleData.click();
@@ -1784,7 +1784,7 @@ document.addEventListener('DOMContentLoaded', () => {
             inputLinkedin.value = state.linkedin || '';
             inputSummary.value = state.summary || '';
 
-            const currentLang = localStorage.getItem('procv_lang') || 'es';
+            const currentLang = localStorage.getItem('procvx_lang') || 'es';
             const t = translations[currentLang] || translations['es'];
 
             if (state.titles) {

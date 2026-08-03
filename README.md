@@ -1,4 +1,4 @@
-# ProCV - Creador de Currículum Profesional
+# ProCVX - Creador de Currículum Profesional
 
 Una aplicación web moderna, premium e interactiva diseñada para crear currículums profesionales adaptados al formato estándar de impresión **A4**. Pensada para cualquier tipo de público que busque una presentación de su perfil limpia, minimalista y de alto impacto visual.
 
