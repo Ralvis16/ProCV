@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             legal_title: "Aviso Legal",
             legal_body: `
                 <p><strong>1. Datos Identificativos</strong><br>
-                En cumplimiento con el deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSICE), se informa que este sitio web es propiedad de Raniell Alvis, con domicilio en Barcelona, y correo electrónico de contacto: [TU EMAIL].</p>
+                En cumplimiento con el deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSICE), se informa que este sitio web es propiedad de Raniell Alvis, con domicilio en Barcelona, y correo electrónico de contacto: raniell16@gmail.com.</p>
                 <p><strong>2. Uso del Portal</strong><br>
                 Esta aplicación proporciona acceso a herramientas de creación de currículums. El usuario asume la responsabilidad del uso del portal y se compromete a hacer un uso adecuado de sus funcionalidades.</p>
                 <p><strong>3. Propiedad Intelectual e Industrial</strong><br>
@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
             legal_title: "Legal Notice",
             legal_body: `
                 <p><strong>1. Identifying Data</strong><br>
-                In compliance with the duty of information, you are informed that this website is owned by Raniell Alvis, located in Barcelona, and contact email: [YOUR EMAIL].</p>
+                In compliance with the duty of information, you are informed that this website is owned by Raniell Alvis, located in Barcelona, and contact email: raniell16@gmail.com.</p>
                 <p><strong>2. Use of the Portal</strong><br>
                 This application provides access to resume creation tools. The user assumes responsibility for the use of the portal and undertakes to make appropriate use of its functionalities.</p>
                 <p><strong>3. Intellectual and Industrial Property</strong><br>
